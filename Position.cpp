@@ -1,12 +1,14 @@
 
 #include "StdAfx.h"
 #include "Position.h"
-Position::Position(int r=0, int c=0):row(r),col(c)
+Position::Position(int r,int c):row(r),col(c)
 {
 }
+/*
 Position::Position():row(0),col(0)
 {
 }
+*/
 Position::Position(const Position& other)
 {
 	//check for self assignment?

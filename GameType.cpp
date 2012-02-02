@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-GameType::GameType(int n=2,int r=3,int c=3,int w=3):NUMBEROFPLAYERS(n),NUMOFROWS(r),NUMOFCOLS(c),INAROWTOWIN(w),NUMBEROFPLAYS(0)
+GameType::GameType(int n,int r,int c,int w):NUMBEROFPLAYERS(n),NUMOFROWS(r),NUMOFCOLS(c),INAROWTOWIN(w),NUMBEROFPLAYS(0)
 {
 	players = new Player *[NUMBEROFPLAYERS];
 	for(int i=0; i<NUMBEROFPLAYERS;++i)
@@ -14,7 +14,7 @@ GameType::GameType(int n=2,int r=3,int c=3,int w=3):NUMBEROFPLAYERS(n),NUMOFROWS
 	 NUMBEROFOWINS=0;
 
 }
-
+/*
 GameType::GameType():NUMBEROFPLAYERS(2),NUMOFROWS(3),NUMOFCOLS(3),INAROWTOWIN(3),NUMBEROFPLAYS(0)
 {
 	players = new Player *[NUMBEROFPLAYERS];
@@ -25,6 +25,7 @@ GameType::GameType():NUMBEROFPLAYERS(2),NUMOFROWS(3),NUMOFCOLS(3),INAROWTOWIN(3)
 	 NUMBEROFXWINS=0;
 	 NUMBEROFOWINS=0;
 }
+*/
 
 
 

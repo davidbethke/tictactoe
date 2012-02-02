@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-GameBoard::GameBoard(int r=3,int c=3,int rw=3, int fun=4):NUMOFROWS(r),NUMOFCOLS(c),INAROWTOWIN(rw),NUMBEROFFUNCS(fun),numberOfMarks(0)
+GameBoard::GameBoard(int r,int c,int rw, int fun):NUMOFROWS(r),NUMOFCOLS(c),INAROWTOWIN(rw),NUMBEROFFUNCS(fun),numberOfMarks(0)
 {
 	typedef  void(*myInc)(Position &);
 	//init gameboard
@@ -20,6 +20,7 @@ GameBoard::GameBoard(int r=3,int c=3,int rw=3, int fun=4):NUMOFROWS(r),NUMOFCOLS
 	//clear values
 	clearBoard();
 }
+/*
 GameBoard::GameBoard():NUMOFROWS(3),NUMOFCOLS(3),numberOfMarks(0),INAROWTOWIN(3),NUMBEROFFUNCS(4)
 {
 	typedef  void(*myInc)(Position &);
@@ -38,6 +39,7 @@ GameBoard::GameBoard():NUMOFROWS(3),NUMOFCOLS(3),numberOfMarks(0),INAROWTOWIN(3)
 	//clear values
 	clearBoard();
 }
+*/
 
 
 GameBoard::~GameBoard(void)
@@ -47,7 +49,7 @@ GameBoard::~GameBoard(void)
 			delete[] gameBoard[i];
 	delete [] gameBoard;
 }
-bool GameBoard::checkFull()
+bool GameBoard::checkFull() const
 {
 	return numberOfMarks == (NUMOFROWS*NUMOFCOLS);
 }
@@ -100,7 +102,7 @@ bool GameBoard::checkAllNew(Mark::Values &mark)
 	
 }
 */
-bool GameBoard::checkAllGeneric(Mark::Values &mark)
+bool GameBoard::checkAllGeneric(Mark::Values &mark) 
 {
 	bool result=false;
 	mark=Mark::BLANK;
@@ -258,7 +260,7 @@ bool GameBoard::checkDiag(Mark::Values &mark)
 	return result;
 }
 */
-void GameBoard::displayBoard()
+void GameBoard::displayBoard() const
 {
 	for (int i=0; i<NUMOFROWS;++i)
 	{
@@ -348,7 +350,7 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 	return result;
 	
 }
-bool GameBoard::inBounds(const Position &pos)
+bool GameBoard::inBounds(const Position &pos) const
 {
 	return((pos.row>=0)&&(pos.col>=0)&&(pos.row<=NUMOFROWS-1)&&(pos.col<=NUMOFCOLS-1));
 }
@@ -403,7 +405,7 @@ bool GameBoard::searchRange(Position start, Position end, int inARow, void(*inc)
 
 }
 */
-int GameBoard::max(int a, int b)
+int GameBoard::max(int a, int b) const
 {
 	if (a>b)
 		return a;

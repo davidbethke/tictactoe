@@ -7,17 +7,17 @@
 class GameBoard
 {
 public:
-	GameBoard(int,int,int,int);
-	GameBoard(void);
+	GameBoard(int r=3,int c=3,int rw=3, int fun=4);
+	//GameBoard(void);
 	~GameBoard(void);
 	bool markBoard(int,int,Mark::Values);
-	bool checkFull(void);
+	bool checkFull(void) const;
 	//bool checkAll(Mark::Values &);
 	//bool checkAllNew(Mark::Values &);
 	bool checkAllGeneric(Mark::Values &);
 	//bool check(Direction, Mark::Values &);
 	void clearBoard(void);
-	void displayBoard();
+	void displayBoard() const;
 	//test
 	bool checkBlank();
 	int getMarks();
@@ -36,8 +36,8 @@ private:
 	//bool searchBunch(Position,Position,int,void(*inc)(Position&),void(*fun)(Position&),Mark::Values&);
 	//bool searchRange(Position, Position,int,void(*fun)(Position&),Mark::Values&);
 	bool searchGeneric(Position,int,void(*fun)(Position&),Mark::Values&);
-	bool inBounds(const Position &);
-	int max(int,int);
+	bool inBounds(const Position &) const;
+	int max(int,int) const;
 
 };
 

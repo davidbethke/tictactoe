@@ -9,8 +9,8 @@ using namespace std;
 class Player
 {
 public:
-	Player(string);
-	Player(void);
+	Player(string n="Computer");
+	//Player(void);
 	~Player(void);
 	int getNumberOfPlays();
 	int getNumberOfWins();

@@ -4,8 +4,8 @@
 struct Position
 {
 	int row, col;
-	Position(int,int);
-	Position();
+	Position(int r=0, int c=0);
+	//Position();
 	Position(const Position&);
 	Position& operator=(const Position&);
 	bool operator==(Position & other);

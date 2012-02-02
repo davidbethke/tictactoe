@@ -6,8 +6,8 @@
 class GameType
 {
 public:
-	GameType(int, int, int,int);
-	GameType();
+	GameType(int n=2,int r=3,int c=3,int w=3);
+	//GameType();
 	~GameType(void);
 	bool clearBoard(void);
 	bool play(void);

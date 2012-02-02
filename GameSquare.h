@@ -9,11 +9,11 @@ class GameSquare
 public:
 	GameSquare(void); // need to pass a Mark, typedef enumType Mark
 	~GameSquare(void);
-	bool isBlank();
-	bool hasValue();
+	bool isBlank() const;
+	bool hasValue() const;
 	bool setValue(Mark::Values);
-	Mark::Values getValue();
-	std::string getSValue();
+	Mark::Values getValue() const;
+	std::string getSValue() const;
 
 private:
 	Mark::Values mark;
