@@ -111,11 +111,8 @@ bool GameBoard::checkAllGeneric(Mark::Values &mark)
 			for(int k=0;k<4;++k)
 			{
 				if(searchGeneric(Position(i,j),INAROWTOWIN,searchFunctionArr[k],mark))
-				//if(searchGeneric(Position(i,j),INAROWTOWIN,acrossInc,mark))
-				{
-					result=true;
-					
-				}
+						result=true;
+			
 			}
 		}
 	}
@@ -292,10 +289,13 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 	//while w/in the gameBoard,look for inARow matches for a win, otherwise lose
 	bool result=false; 
 	int matchCount=1;
+	Mark::Values winningMark=Mark::BLANK;
 	
-	Position first(start); // fixed position
-	Position current(start);// variable position
-	inc(current);
+	Position first(start); // start count position
+	Position current(start);// variable count position, if current-start >= INAROW, then a win
+	Position winStart(start);
+	inc(current); // set current one before start to init
+
 	while(inBounds(current))
 	{
 		if(gameBoard[first.row][first.col].isBlank())
@@ -309,26 +309,34 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 		{
 			inc(current);
 			matchCount++;
+			if(matchCount==inARow)
+			{
+				result=true;
+				winningMark=gameBoard[first.row][first.col].getValue();
+				winStart=first;
+			}
 		}
 		else
 		{
-			inc(first); // see if this helps diags
-			//first=current; // move fixed position 
+			//inc(first); // see if this helps diags
+			first=current; // move fixed position 
 			inc(current);  //inc current position
 			matchCount=1;   // didn't match reset
 		}
 	}
 	//update result to win if the matches=inARow game requirement
-	if(matchCount == inARow)
+	if(result)
 	{
-		mark=gameBoard[first.row][first.col].getValue();
-		result=true;
-		for(int i=1; i<matchCount;++i)
+		mark=winningMark;
+		
+		for(int i=0; i<inARow;++i)
 		{
 			//remark board so I can see the winner easily
-			gameBoard[first.row][first.col].setValue(Mark::W);
-			inc(first);
+			gameBoard[winStart.row][winStart.col].setValue(Mark::W);
+			inc(winStart);//now used as a generic iterator
 		}
+		
+		
 	}
 	return result;
 	

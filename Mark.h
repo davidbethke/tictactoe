@@ -11,5 +11,5 @@ struct Mark
 	};
 
 };
-char * markValues[]={"G","O","X","W"};
+char * markValues[]={"*","O","X","W"};
 #endif
