@@ -10,7 +10,7 @@ using namespace std;
 int _tmain(int argc, _TCHAR* argv[])
 {
 	//GameType myGame;
-	GameType myGame(2,6,6,4);
+	GameType myGame(2,8,8,5);
 	char answer = 'y';
 	do {
 		myGame.play();

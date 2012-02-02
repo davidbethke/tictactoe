@@ -104,6 +104,7 @@ bool GameBoard::checkAllGeneric(Mark::Values &mark)
 {
 	bool result=false;
 	mark=Mark::BLANK;
+	
 	for(int i=0;i<NUMOFROWS;++i)
 	{
 		for(int j=0;j<NUMOFCOLS;++j)
@@ -116,6 +117,7 @@ bool GameBoard::checkAllGeneric(Mark::Values &mark)
 			}
 		}
 	}
+	
 	return result;
 }
 /*
@@ -293,12 +295,12 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 	
 	Position first(start); // start count position
 	Position current(start);// variable count position, if current-start >= INAROW, then a win
-	Position winStart(start);
+	Position winPos(start);
 	inc(current); // set current one before start to init
 
 	while(inBounds(current))
 	{
-		if(gameBoard[first.row][first.col].isBlank())
+		if(gameBoard[first.row][first.col].isBlank()||gameBoard[first.row][first.col].getValue()==Mark::W)
 		{
 			// need a value, not blank
 			inc(first);
@@ -307,14 +309,17 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 		}
 		else if(gameBoard[first.row][first.col].getValue() == gameBoard[current.row][current.col].getValue())
 		{
-			inc(current);
 			matchCount++;
 			if(matchCount==inARow)
 			{
 				result=true;
 				winningMark=gameBoard[first.row][first.col].getValue();
-				winStart=first;
+				mark=gameBoard[first.row][first.col].getValue();
+				winPos=first;
 			}
+			inc(current);
+			
+			
 		}
 		else
 		{
@@ -325,6 +330,7 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 		}
 	}
 	//update result to win if the matches=inARow game requirement
+
 	if(result)
 	{
 		mark=winningMark;
@@ -332,12 +338,13 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 		for(int i=0; i<inARow;++i)
 		{
 			//remark board so I can see the winner easily
-			gameBoard[winStart.row][winStart.col].setValue(Mark::W);
-			inc(winStart);//now used as a generic iterator
+			gameBoard[winPos.row][winPos.col].setValue(Mark::W);
+			inc(winPos);//now used as a generic iterator
 		}
 		
 		
 	}
+	
 	return result;
 	
 }
