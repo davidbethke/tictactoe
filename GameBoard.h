@@ -1,13 +1,16 @@
+#ifndef GAMEBOARD
+#define GAMEBOARD
 
 #include "GameSquare.h"
 #include "Direction.h"
 #include "Position.h"
-#ifndef GAMEBOARD
-#define GAMEBOARD
+#include "GameParameters.h"
+
 class GameBoard
 {
 public:
 	GameBoard(int r=3,int c=3,int rw=3, int fun=4);
+	GameBoard(GameParameters& gP=GameParameters());
 	//GameBoard(void);
 	~GameBoard(void);
 	bool markBoard(int,int,Mark::Values);
@@ -22,6 +25,7 @@ public:
 	bool checkBlank();
 	int getMarks();
 private:
+	GameParameters gameParams;
 	const int NUMOFROWS;
 	const int NUMOFCOLS;
 	const int INAROWTOWIN;

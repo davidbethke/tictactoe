@@ -1,6 +1,5 @@
 #include "StdAfx.h"
 #include "GameBoard.h"
-
 #include <iostream>
 
 using namespace std;
@@ -12,7 +11,7 @@ GameBoard::GameBoard(int r,int c,int rw, int fun):NUMOFROWS(r),NUMOFCOLS(c),INAR
 	for (int i=0; i<NUMOFROWS;++i)
 		gameBoard[i]= new GameSquare[NUMOFCOLS];
 	
-	searchFunctionArr= new myInc[4];
+	searchFunctionArr= new myInc[NUMBEROFFUNCS];
 	searchFunctionArr[0]=acrossInc;
 	searchFunctionArr[1]=downInc;
 	searchFunctionArr[2]=diagInc;
@@ -20,47 +19,43 @@ GameBoard::GameBoard(int r,int c,int rw, int fun):NUMOFROWS(r),NUMOFCOLS(c),INAR
 	//clear values
 	clearBoard();
 }
-/*
-GameBoard::GameBoard():NUMOFROWS(3),NUMOFCOLS(3),numberOfMarks(0),INAROWTOWIN(3),NUMBEROFFUNCS(4)
+
+GameBoard::GameBoard(GameParameters& gP):gameParams(gP),NUMOFROWS(gP.NUMROWS),NUMOFCOLS(gP.NUMCOLS),INAROWTOWIN(gP.INAROWTOWIN),NUMBEROFFUNCS(4),numberOfMarks(0)
 {
 	typedef  void(*myInc)(Position &);
 	//init gameboard
-	cout<<"GameBoard initing"<<std::endl;
-	gameBoard= new GameSquare *[NUMOFROWS];
-	for (int i=0; i<NUMOFROWS;++i)
-		gameBoard[i]= new GameSquare[NUMOFCOLS];
-	//init searchFuncArr
-	searchFunctionArr= new myInc[4];
+	gameBoard= new GameSquare *[gameParams.NUMROWS];
+	for (int i=0; i<gameParams.NUMROWS;++i)
+		gameBoard[i]= new GameSquare[gameParams.NUMCOLS];
+	
+	searchFunctionArr= new myInc[NUMBEROFFUNCS];
 	searchFunctionArr[0]=acrossInc;
 	searchFunctionArr[1]=downInc;
 	searchFunctionArr[2]=diagInc;
 	searchFunctionArr[3]=diagDec;
-	//void(*searchFunctionArr[4])(Position &)={&acrossInc,&downInc,&diagInc,&diagDec};
 	//clear values
 	clearBoard();
 }
-*/
-
 
 GameBoard::~GameBoard(void)
 {
 	//Clean up pointers
-	for(int i=0; i< NUMOFROWS;++i)
+	for(int i=0; i< gameParams.NUMROWS;++i)
 			delete[] gameBoard[i];
 	delete [] gameBoard;
 }
 bool GameBoard::checkFull() const
 {
-	return numberOfMarks == (NUMOFROWS*NUMOFCOLS);
+	return numberOfMarks == (gameParams.NUMROWS*gameParams.NUMCOLS);
 }
 void GameBoard::clearBoard()
 {
 	cout << "Clearing Board .."<<endl;
 	//reset number of Marks
 	numberOfMarks=0;
-	for(int i=0; i<NUMOFROWS;++i)
+	for(int i=0; i<gameParams.NUMROWS;++i)
 	{
-		for(int j=0; j<NUMOFCOLS;++j)
+		for(int j=0; j<gameParams.NUMCOLS;++j)
 		{
 			gameBoard[i][j].setValue(Mark::BLANK);
 		}
@@ -76,44 +71,20 @@ bool GameBoard::markBoard(int r, int c, Mark::Values mark)
 		return gameBoard[r][c].setValue(mark);
 	}
 }
-/*
-bool GameBoard::checkAll(Mark::Values &mark)
-{
-	//TODO maybe iterate over all enums, for now
-	
-	if(check(ACROSS,mark) || check(DOWN,mark) || check(DIAG,mark))
-		return true;
-	else
-		return false;
-}
-bool GameBoard::checkAllNew(Mark::Values &mark)
-{
-	//mark=Mark::EX; //kluge for now
-	Position start(0,0);
-	Position endDown(NUMOFROWS-1,0);
-	Position endAcross(0,NUMOFCOLS-1);
-	Position endDiag(NUMOFROWS-1,NUMOFCOLS-1);
-	//searchBunch(start,endAcross,NUMOFCOLS,downInc,acrossInc) ||
-	return (searchBunch(start,endAcross,NUMOFCOLS,downInc,acrossInc,mark) ||
-			searchBunch(start,endDown,NUMOFROWS,acrossInc,downInc,mark) ||
-			searchBunch(start,endDiag,1,diagInc,diagInc,mark) ||
-			searchBunch(endDown,endAcross,1,diagDec,diagDec,mark)
-			);
-	
-}
-*/
+
 bool GameBoard::checkAllGeneric(Mark::Values &mark) 
 {
 	bool result=false;
 	mark=Mark::BLANK;
 	
-	for(int i=0;i<NUMOFROWS;++i)
+	for(int i=0;i<gameParams.NUMROWS;++i)
 	{
-		for(int j=0;j<NUMOFCOLS;++j)
+		for(int j=0;j<gameParams.NUMCOLS;++j)
 		{
-			for(int k=0;k<4;++k)
+			Position startPos(i,j);//search this gamesquare w/ all inc functions
+			for(int k=0;k<NUMBEROFFUNCS;++k)
 			{
-				if(searchGeneric(Position(i,j),INAROWTOWIN,searchFunctionArr[k],mark))
+				if(searchGeneric(startPos,gameParams.INAROWTOWIN,searchFunctionArr[k],mark))
 						result=true;
 			
 			}
@@ -267,7 +238,9 @@ void GameBoard::displayBoard() const
 		for(int j=0;j<NUMOFCOLS;++j)
 			std::cout<<gameBoard[i][j].getSValue()<<"|";
 		std::cout <<std::endl;
-		std::cout <<"------"<<endl;
+		for(int k=0;k<NUMOFCOLS;++k) // draw the gameboard, horiz lines
+			std::cout <<"--";
+		std::cout<<endl;
 	}
 
 }

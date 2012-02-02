@@ -1,10 +1,10 @@
-
+#ifndef PLAYER_H
+#define PLAYER_H
 #include <string>
 #include <iostream>
 #include <random>
 #include "GameBoard.h"
-#ifndef PLAYER
-#define PLAYER
+
 using namespace std;
 class Player
 {

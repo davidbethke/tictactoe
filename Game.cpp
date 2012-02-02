@@ -9,8 +9,9 @@ using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	GameParameters myGameParams;
 	//GameType myGame;
-	GameType myGame(2,8,8,5);
+	GameType myGame(myGameParams);
 	char answer = 'y';
 	do {
 		myGame.play();

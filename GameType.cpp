@@ -2,17 +2,24 @@
 #include "GameType.h"
 #include <iostream>
 using namespace std;
-
+/*
 GameType::GameType(int n,int r,int c,int w):NUMBEROFPLAYERS(n),NUMOFROWS(r),NUMOFCOLS(c),INAROWTOWIN(w),NUMBEROFPLAYS(0)
 {
 	players = new Player *[NUMBEROFPLAYERS];
 	for(int i=0; i<NUMBEROFPLAYERS;++i)
 		players[i]= new Player;
 	theBoard= new GameBoard(NUMOFROWS,NUMOFCOLS,INAROWTOWIN,4);
-	 NUMBEROFWINS=0;
-	 NUMBEROFXWINS=0;
-	 NUMBEROFOWINS=0;
-
+	 
+}
+*/
+GameType::GameType(GameParameters&  gP):gameParams(gP)
+{
+	//kluge, until I transition to only GameParameters constructor
+	players = new Player *[gameParams.NUMPLAYERS];
+	for(int i=0; i<gameParams.NUMPLAYERS;++i)
+		players[i]= new Player;
+	theBoard= new GameBoard(gameParams);
+	
 }
 /*
 GameType::GameType():NUMBEROFPLAYERS(2),NUMOFROWS(3),NUMOFCOLS(3),INAROWTOWIN(3),NUMBEROFPLAYS(0)
@@ -31,8 +38,9 @@ GameType::GameType():NUMBEROFPLAYERS(2),NUMOFROWS(3),NUMOFCOLS(3),INAROWTOWIN(3)
 
 GameType::~GameType(void)
 {
-	for(int i=0;i<NUMBEROFPLAYERS;++i)
+	for(int i=0;i<gameParams.NUMPLAYERS;++i)
 		delete players[i];
+	delete[] players;
 }
 bool GameType::play()
 {
@@ -47,24 +55,13 @@ bool GameType::play()
 	theBoard->clearBoard();
 	cout << "Initial Board"<<endl;
 	theBoard->displayBoard();
-	int testValue=0;
+	
 	while(!theBoard->checkFull())
 	{
-		//testValue++;
+		
 		cout << "Player Number:"<<currentPlayerNumber<< " Move"<<endl;
-		if(players[currentPlayerNumber]->move(NUMOFROWS,NUMOFCOLS,theBoard))
+		if(players[currentPlayerNumber]->move(gameParams.NUMROWS,gameParams.NUMCOLS,theBoard))
 		{
-			//Display Board after player move
-			//test for all blanks
-			//theBoard->clearBoard();
-			/*
-			if(!theBoard->checkBlank()&&firstRun)
-			{
-				cout<< "Not All Blank"<<endl;
-				firstRun=false;
-			}
-			else
-			*/
 			
 			cout << "Board"<<endl;
 			cout <<"------"<<endl;
@@ -73,31 +70,31 @@ bool GameType::play()
 			
 			if(theBoard->checkAllGeneric(winningValue)) // various algorithms for this 
 			{
-				NUMBEROFPLAYS++;
-				NUMBEROFWINS++;
+				gameParams.NUMBEROFPLAYS++;
+				gameParams.NUMBEROFOWINS++;
 				cout << "Total Marks:"<< theBoard->getMarks()<<endl;
 				cout << "Player:"<<players[currentPlayerNumber]->getName()<<endl;
 				cout << "value is:"<<markValues[winningValue]<<endl; // take enum, translate to string
-				cout << "In a row to win:"<< INAROWTOWIN<<endl;
+				cout << "In a row to win:"<< gameParams.INAROWTOWIN<<endl;
 				if(winningValue == Mark::EX)
-					NUMBEROFXWINS++;
+					gameParams.NUMBEROFXWINS++;
 				else
-					NUMBEROFOWINS++;
+					gameParams.NUMBEROFOWINS++;
 
-				cout << "Game Stats: Plays:"<<NUMBEROFPLAYS<<" WIN PERCENT:"<<(1.0*NUMBEROFWINS/NUMBEROFPLAYS)*100.0<<"%"<<endl;
-				cout << "X Win Percent:"<<(1.0*NUMBEROFXWINS/NUMBEROFPLAYS)*100.0<<" % O Win Percent:"<<(1.0*NUMBEROFOWINS/NUMBEROFPLAYS)*100.0<<" %"<<endl;
+				cout << "Game Stats: Plays:"<<gameParams.NUMBEROFPLAYS<<" WIN PERCENT:"<<(1.0*gameParams.NUMBEROFWINS/gameParams.NUMBEROFPLAYS)*100.0<<"%"<<endl;
+				cout << "X Win Percent:"<<(1.0*gameParams.NUMBEROFXWINS/gameParams.NUMBEROFPLAYS)*100.0<<" % O Win Percent:"<<(1.0*gameParams.NUMBEROFOWINS/gameParams.NUMBEROFPLAYS)*100.0<<" %"<<endl;
 				cout << "Final Board"<<endl;
 				theBoard->displayBoard();
 				return true; //winner
 			}
 			if(theBoard->checkFull())
 			{
-				NUMBEROFPLAYS++;
+				gameParams.NUMBEROFPLAYS++;
 				cout << "Game Over,FULL"<<endl;
 				cout << "Total Marks:"<< theBoard->getMarks()<<endl;
-				cout << "In a row to win:"<< INAROWTOWIN<<endl;
-				cout << "Game Stats: Plays:"<<NUMBEROFPLAYS<<" WIN PERCENT:"<<(1.0*NUMBEROFWINS/NUMBEROFPLAYS)*100.0<<"%"<<endl;
-				cout << "X Win Percent:"<<(1.0*NUMBEROFXWINS/NUMBEROFPLAYS)*100.0<<" % O Win Percent:"<<(1.0*NUMBEROFOWINS/NUMBEROFPLAYS)*100.0<<" %"<<endl;
+				cout << "In a row to win:"<< gameParams.INAROWTOWIN<<endl;
+				cout << "Game Stats: Plays:"<<gameParams.NUMBEROFPLAYS<<" WIN PERCENT:"<<(1.0*gameParams.NUMBEROFWINS/gameParams.NUMBEROFPLAYS)*100.0<<"%"<<endl;
+				cout << "X Win Percent:"<<(1.0*gameParams.NUMBEROFXWINS/gameParams.NUMBEROFPLAYS)*100.0<<" % O Win Percent:"<<(1.0*gameParams.NUMBEROFOWINS/gameParams.NUMBEROFPLAYS)*100.0<<" %"<<endl;
 				cout << "Final Board"<<endl;
 				theBoard->displayBoard();
 				
@@ -135,7 +132,7 @@ void GameType::swapPlayerIndex(int & a, int & b)
 	b=temp;
 
 }
-void GameType::getPlayerNames(Player ** p)
+void GameType::getPlayerNames(Player ** p) 
 {
 	std::string name0, name1;
 	// player 0
