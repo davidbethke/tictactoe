@@ -79,6 +79,7 @@
   <ItemGroup>
     <ClInclude Include="Direction.h" />
     <ClInclude Include="GameBoard.h" />
+    <ClInclude Include="GameParameters.h" />
     <ClInclude Include="GameSquare.h" />
     <ClInclude Include="GameType.h" />
     <ClInclude Include="Mark.h" />
@@ -90,6 +91,7 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameBoard.cpp" />
+    <ClCompile Include="GameParameters.cpp" />
     <ClCompile Include="GameSquare.cpp" />
     <ClCompile Include="GameType.cpp" />
     <ClCompile Include="Player.cpp" />

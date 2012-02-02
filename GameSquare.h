@@ -1,8 +1,8 @@
 
-#include "Mark.h"
-#include <string>
 #ifndef GAMESQUARE
 #define GAMESQUARE
+#include "Mark.h"
+#include <string>
 using namespace std;
 class GameSquare
 {

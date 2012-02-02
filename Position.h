@@ -1,4 +1,3 @@
-#pragma once
 #ifndef POSITION
 #define POSITION
 struct Position
