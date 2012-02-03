@@ -9,7 +9,6 @@ struct Position
 	Position& operator=(const Position&);
 	bool operator==(Position & other);
 	bool operator!=(Position & other);
-	Position  operator+(Position& other);
 	void reset();
 };
 //myInc function prototypes

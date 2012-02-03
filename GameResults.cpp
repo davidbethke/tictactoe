@@ -5,8 +5,6 @@
 GameResults::GameResults(void):winMark(Mark::BLANK),winPos(),winDir(Direction::NONE),winPlayer(),win(false),numberMarks(0)
 {
 }
-
-
 GameResults::~GameResults(void)
 {
 }

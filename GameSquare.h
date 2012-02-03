@@ -7,7 +7,7 @@ using namespace std;
 class GameSquare
 {
 public:
-	GameSquare(void); // need to pass a Mark, typedef enumType Mark
+	GameSquare(void); 
 	~GameSquare(void);
 	bool isBlank() const;
 	bool hasValue() const;

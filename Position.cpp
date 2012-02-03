@@ -4,11 +4,6 @@
 Position::Position(int r,int c):row(r),col(c)
 {
 }
-/*
-Position::Position():row(0),col(0)
-{
-}
-*/
 Position::Position(const Position& other)
 {
 	//check for self assignment?
@@ -31,10 +26,6 @@ bool Position::operator==(Position & other)
 bool Position::operator!=(Position & other)
 {
 	return !(*this==other);
-}
-Position Position::operator+(Position&other)
-{
-	return Position(row+other.row,col+other.col);
 }
 void Position::reset()
 {

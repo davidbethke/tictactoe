@@ -7,8 +7,6 @@ GameParameters::GameParameters(int r,int c, int rw):NUMROWS(r),NUMCOLS(c),INAROW
 {
 	results=new GameResults;
 }
-
-
 GameParameters::~GameParameters(void)
 {
 }
