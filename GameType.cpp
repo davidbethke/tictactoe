@@ -177,7 +177,11 @@ void GameType::displayGameResults() const
 {
 	cout << "Total Marks Played:"<< theBoard->getMarks()<<endl;
 	cout << "Last Player:"<<players[gameParams.currentPlayerNumber]->getName()<<endl;
-	cout << "Winning Mark is:"<<markValues[gameParams.results->winMark]<<endl; // take enum, translate to string
+	if(gameParams.results->win)
+	{
+		cout << "Winning Mark is:"<<markValues[gameParams.results->winMark]<<endl; // take enum, translate to string
+		cout << "Winning Direction is:"<<DirString[gameParams.results->winDir]<<endl;
+	}
 	cout << "In a row to win:"<< gameParams.INAROWTOWIN<<endl;
 }
 void GameType::displayGameStats() const

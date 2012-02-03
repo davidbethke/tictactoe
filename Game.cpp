@@ -9,7 +9,7 @@ using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	GameParameters myGameParams;
+	GameParameters myGameParams; //default to 3x3 tic tac toe
 	//GameType myGame;
 	GameType myGame(myGameParams);
 	char answer = 'y';
