@@ -1,5 +1,5 @@
-#ifndef MARK
-#define MARK
+#ifndef MARK_H
+#define MARK_H
 
 struct Mark
 {

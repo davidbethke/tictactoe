@@ -3,6 +3,7 @@
 #include <iostream>
 
 using namespace std;
+/*
 GameBoard::GameBoard(int r,int c,int rw, int fun):NUMOFROWS(r),NUMOFCOLS(c),INAROWTOWIN(rw),NUMBEROFFUNCS(fun),numberOfMarks(0)
 {
 	typedef  void(*myInc)(Position &);
@@ -19,10 +20,11 @@ GameBoard::GameBoard(int r,int c,int rw, int fun):NUMOFROWS(r),NUMOFCOLS(c),INAR
 	//clear values
 	clearBoard();
 }
+*/
 
-GameBoard::GameBoard(GameParameters& gP):gameParams(gP),NUMOFROWS(gP.NUMROWS),NUMOFCOLS(gP.NUMCOLS),INAROWTOWIN(gP.INAROWTOWIN),NUMBEROFFUNCS(4),numberOfMarks(0)
+GameBoard::GameBoard(GameParameters& gP):gameParams(gP)
 {
-	typedef  void(*myInc)(Position &);
+	typedef  void(*myInc)(Position &);//define myInc as a pointer to inc Funcs
 	//init gameboard
 	gameBoard= new GameSquare *[gameParams.NUMROWS];
 	for (int i=0; i<gameParams.NUMROWS;++i)
@@ -46,13 +48,12 @@ GameBoard::~GameBoard(void)
 }
 bool GameBoard::checkFull() const
 {
-	return numberOfMarks == (gameParams.NUMROWS*gameParams.NUMCOLS);
+	return gameParams.results->numberMarks == (gameParams.NUMROWS*gameParams.NUMCOLS);
 }
 void GameBoard::clearBoard()
 {
 	cout << "Clearing Board .."<<endl;
-	//reset number of Marks
-	numberOfMarks=0;
+	gameParams.results->reset();
 	for(int i=0; i<gameParams.NUMROWS;++i)
 	{
 		for(int j=0; j<gameParams.NUMCOLS;++j)
@@ -67,15 +68,15 @@ bool GameBoard::markBoard(int r, int c, Mark::Values mark)
 		return false;
 	else
 	{
-		numberOfMarks++;
+		gameParams.results->numberMarks++;
 		return gameBoard[r][c].setValue(mark);
 	}
 }
 
-bool GameBoard::checkAllGeneric(Mark::Values &mark) 
+bool GameBoard::checkAllGeneric() 
 {
-	bool result=false;
-	mark=Mark::BLANK;
+	//gameParams.results->win=false;
+	//mark=Mark::BLANK;
 	
 	for(int i=0;i<gameParams.NUMROWS;++i)
 	{
@@ -84,14 +85,17 @@ bool GameBoard::checkAllGeneric(Mark::Values &mark)
 			Position startPos(i,j);//search this gamesquare w/ all inc functions
 			for(int k=0;k<NUMBEROFFUNCS;++k)
 			{
-				if(searchGeneric(startPos,gameParams.INAROWTOWIN,searchFunctionArr[k],mark))
-						result=true;
+				if(searchGeneric(startPos,searchFunctionArr[k]))
+				{
+					gameParams.results->win=true;
+					gameParams.results->winDir=static_cast<Direction>(k);
+				}
 			
 			}
 		}
 	}
 	
-	return result;
+	return gameParams.results->win;
 }
 /*
 bool GameBoard::searchBunch(Position start, Position end,int range,void(*inc)(Position&),void(*fun)(Position&),Mark::Values&mark)
@@ -233,17 +237,18 @@ bool GameBoard::checkDiag(Mark::Values &mark)
 */
 void GameBoard::displayBoard() const
 {
-	for (int i=0; i<NUMOFROWS;++i)
+	for (int i=0; i<gameParams.NUMROWS;++i)
 	{
-		for(int j=0;j<NUMOFCOLS;++j)
-			std::cout<<gameBoard[i][j].getSValue()<<"|";
-		std::cout <<std::endl;
-		for(int k=0;k<NUMOFCOLS;++k) // draw the gameboard, horiz lines
-			std::cout <<"--";
-		std::cout<<endl;
+		for(int j=0;j<gameParams.NUMCOLS;++j)
+			cout<<gameBoard[i][j].getSValue()<<"|";
+			cout <<endl;
+		for(int k=0;k<gameParams.NUMCOLS;++k) // draw the gameboard, horiz lines
+			cout <<"--";
+		cout<<endl;
 	}
 
 }
+/*
 bool GameBoard::checkBlank()
 {
 	bool result=true;
@@ -257,20 +262,24 @@ bool GameBoard::checkBlank()
 	}
 	return result;
 }
+*/
 int GameBoard::getMarks()
 {
-	return numberOfMarks;
+	return gameParams.results->numberMarks;
 }
-bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Mark::Values&mark)
+bool GameBoard::searchGeneric(Position start,void(*inc)(Position&))
 {
 	//while w/in the gameBoard,look for inARow matches for a win, otherwise lose
-	bool result=false; 
+	//gameParams.results->win=false; 
+	//gameParams.results->winMark=Mark::BLANK;
+	bool win=false;
 	int matchCount=1;
-	Mark::Values winningMark=Mark::BLANK;
+	Position winPos(start);
+	
 	
 	Position first(start); // start count position
 	Position current(start);// variable count position, if current-start >= INAROW, then a win
-	Position winPos(start);
+	//Position winPos(start);
 	inc(current); // set current one before start to init
 
 	while(inBounds(current))
@@ -285,16 +294,17 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 		else if(gameBoard[first.row][first.col].getValue() == gameBoard[current.row][current.col].getValue())
 		{
 			matchCount++;
-			if(matchCount==inARow)
+			if(matchCount==gameParams.INAROWTOWIN)
 			{
-				result=true;
-				winningMark=gameBoard[first.row][first.col].getValue();
-				mark=gameBoard[first.row][first.col].getValue();
+				win=true;
+				gameParams.results->winMark=gameBoard[first.row][first.col].getValue();
+				//mark=gameBoard[first.row][first.col].getValue();
+				//gameParams.results->winPos=first;
 				winPos=first;
+				matchCount=1;
 			}
 			inc(current);
-			
-			
+					
 		}
 		else
 		{
@@ -306,11 +316,15 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 	}
 	//update result to win if the matches=inARow game requirement
 
-	if(result)
+	if(win)
 	{
-		mark=winningMark;
+		//Mark up the board w/ W to identify the winner, up to the inARow amt
+		//Position winPos=gameParams.results->winPos;
+		//mark=gameParams.results->winMark;
+		gameParams.results->winPos=winPos;
 		
-		for(int i=0; i<inARow;++i)
+		
+		for(int i=0; i<gameParams.INAROWTOWIN;++i)
 		{
 			//remark board so I can see the winner easily
 			gameBoard[winPos.row][winPos.col].setValue(Mark::W);
@@ -320,12 +334,13 @@ bool GameBoard::searchGeneric(Position start,int inARow,void(*inc)(Position&),Ma
 		
 	}
 	
-	return result;
+	return win;
+	//return gameParams.results->win;
 	
 }
 bool GameBoard::inBounds(const Position &pos) const
 {
-	return((pos.row>=0)&&(pos.col>=0)&&(pos.row<=NUMOFROWS-1)&&(pos.col<=NUMOFCOLS-1));
+	return((pos.row>=0)&&(pos.col>=0)&&(pos.row<=gameParams.NUMROWS-1)&&(pos.col<=gameParams.NUMCOLS-1));
 }
 /*
 bool GameBoard::searchRange(Position start, Position end, int inARow, void(*inc)(Position&),Mark::Values&mark)

@@ -1,5 +1,5 @@
-#ifndef GAMETYPE
-#define GAMETYPE
+#ifndef GAMETYPE_H
+#define GAMETYPE_H
 #include "Player.h"
 #include "GameParameters.h"
 class GameType
@@ -9,8 +9,8 @@ public:
 	GameType(GameParameters& gP);
 	//GameType();
 	~GameType(void);
-	bool clearBoard(void);
-	bool play(void);
+	//void clearBoard(void);
+	void play(void);
 private:
 	GameParameters gameParams;
 	//const int NUMBEROFPLAYERS;
@@ -26,6 +26,9 @@ private:
 	void swapPlayerIndex(int &,int &);
 	void getPlayerNames(Player **); 
 	void getPlayerOrder(int &, int&);
+	void displayGameResults() const;
+	void displayGameStats() const;
+	
 
 };
 

@@ -1,5 +1,5 @@
-#ifndef POSITION
-#define POSITION
+#ifndef POSITION_H
+#define POSITION_H
 struct Position
 {
 	int row, col;
@@ -10,6 +10,7 @@ struct Position
 	bool operator==(Position & other);
 	bool operator!=(Position & other);
 	Position  operator+(Position& other);
+	void reset();
 };
 //myInc function prototypes
 void acrossInc(Position&);

@@ -36,6 +36,10 @@ Position Position::operator+(Position&other)
 {
 	return Position(row+other.row,col+other.col);
 }
+void Position::reset()
+{
+	row=col=0;
+}
 void acrossInc(Position& pos)
 {
 	(pos.col)++;
