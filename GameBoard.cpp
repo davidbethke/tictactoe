@@ -45,7 +45,7 @@ void GameBoard::clearBoard()
 }
 bool GameBoard::markBoard(int r, int c, Mark::Values mark)
 {
-	if(gameBoard[r][c].hasValue())
+	if((gameBoard[r][c].hasValue())|| (mark==Mark::BLANK))
 		return false;
 	else
 	{

@@ -20,7 +20,7 @@ public:
 	void displayBoard(string n="") const;
 	
 private:
-	static const int NUMBEROFFUNCS=4;
+	static const int NUMBEROFFUNCS=4;// funcs for inc, across, down, diag1, diag2
 	GameParameters gameParams;
 	GameSquare **gameBoard;
 	void(**searchFunctionArr)(Position&);
