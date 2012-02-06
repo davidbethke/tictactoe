@@ -6,7 +6,7 @@ class GameType
 {
 public:
 	
-	GameType(GameParameters& gP);
+	GameType(GameParameters& gP=GameParameters()); //default GameParameters if none specified
 	~GameType(void);
 	void play(void);
 private:
@@ -20,5 +20,7 @@ private:
 	void displayGameStats() const;
 	
 };
-
+void swapPlayerIndex(int &,int &);
+void setPlayerOrder(int &, int&);
+void setPlayerNames(Player **);
 #endif

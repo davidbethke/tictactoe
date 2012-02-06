@@ -126,6 +126,35 @@ void GameType::displayGameStats() const
 	cout << "-----------"<<endl;
 	theBoard->displayBoard();
 }
+void swapPlayerIndex(int & a, int & b)
+{
+	int temp=a;
+	a=b;
+	b=temp;
+}
+void setPlayerOrder(int& first, int& second)
+{
+	char answer='n';
+	cout<<"Swap Player Order y/n"<<endl;
+	cin >> answer;
+	if(answer=='y')
+		swapPlayerIndex(first,second);
+}
+void setPlayerNames(Player ** p) 
+{
+	string name0, name1;
+	// player 0
+	cout<<"Enter Player 0 Name"<<"default ("<<p[0]->getName()<<endl;
+	cin >> name0;
+	if(!name0.empty())
+		p[0]->setName(name0);
+	cout<<"Enter Player 1 Name"<<"default ("<<p[1]->getName()<<endl;
+	cin >> name0;
+	if(!name1.empty())
+		p[1]->setName(name0);
+	
+}
+
 
 	
 

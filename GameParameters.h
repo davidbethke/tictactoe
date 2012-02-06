@@ -1,6 +1,5 @@
 #ifndef GAMEPARAMETERS_H
 #define	GAMEPARAMETERS_H	
-//class GameResults; // forward declaraction, since results is a pointer
 #include "GameResults.h"
 
 struct GameParameters
