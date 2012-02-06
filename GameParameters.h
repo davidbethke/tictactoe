@@ -4,7 +4,7 @@
 
 struct GameParameters
 {
-	GameParameters(int r=3,int c=3, int rw=3);
+	GameParameters(int r=3,int c=3, int rw=3); //default to tic tac toe
 	~GameParameters(void);
 	const int NUMROWS;
 	const int NUMCOLS;
