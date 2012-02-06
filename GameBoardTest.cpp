@@ -135,7 +135,7 @@ TEST_F(GameBoardTest,markWinnerAcrossW)
 	bool result=false;
 	result=markWinner(Direction::ACROSS,3,0,0,Mark::W);
 	EXPECT_TRUE(result)<<"Didn't Mark the Board, correctly";
-	EXPECT_FALSE(gb.checkAllGeneric())<< "Can't win w/ a W"
+	EXPECT_FALSE(gb.checkAllGeneric())<< "Can't win w/ a W";
 
 }
 TEST_F(GameBoardTest,markWinnerDownO)
@@ -160,7 +160,7 @@ TEST_F(GameBoardTest,markWinnerDownW)
 	bool result=false;
 	result=markWinner(Direction::DOWN,3,0,0,Mark::W);
 	EXPECT_TRUE(result)<<"Didn't Mark the Board, correctly";
-	EXPECT_FALSE(gb.checkAllGeneric())<< "Can't win w/ a W"
+	EXPECT_FALSE(gb.checkAllGeneric())<< "Can't win w/ a W";
 
 }
 TEST_F(GameBoardTest,markWinnerDiag1O)
@@ -182,10 +182,10 @@ TEST_F(GameBoardTest,markWinnerDiag1X)
 }
 TEST_F(GameBoardTest,markWinnerDiag1W)
 {
-	bool result=false;
-	result=markWinner(Direction::DIAG2,3,0,0,Mark::W);
-	EXPECT_TRUE(result)<<"Didn't Mark the Board, correctly";
-	EXPECT_FALSE(gb.checkAllGeneric())<< "Can't win w/ a W"
+	
+	
+	EXPECT_TRUE(markWinner(Direction::DIAG2,3,0,0,Mark::W))<<"Didn't Mark the Board, correctly";
+	EXPECT_FALSE(gb.checkAllGeneric())<< "Can't win w/ a W";
 
 }
 TEST_F(GameBoardTest,markWinnerDiag2O)
@@ -211,9 +211,14 @@ TEST_F(GameBoardTest,markWinnerDiag2W)
 	result=markWinner(Direction::DIAG2,3,2,0,Mark::W);
 	EXPECT_TRUE(result)<<"Didn't Mark the Board, correctly";
 	EXPECT_FALSE(gb.checkAllGeneric())<< "Can't win w/ a W";
+}
+TEST_F(GameBoardTest,markOutOfBounds)
+{
+	EXPECT_FALSE(gb.markBoard(3,0,Mark::EX))<<"Mark at 3,0 should fail";
+	EXPECT_FALSE(gb.markBoard(0,3,Mark::EX))<<"Mark at 0,3 should fail";
+	EXPECT_FALSE(gb.markBoard(-1,0,Mark::EX))<<"Mark at -1,0 should fail";
 
 }
-
 
 
 
