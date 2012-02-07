@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include<iostream>
 #include"GameType.h"
+#include "GameParameters.h"
 #include "gtest/gtest.h"
 using namespace std;
 TEST(SampleTest,test1)
@@ -16,8 +17,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	testing::InitGoogleTest(&argc, argv); 
     RUN_ALL_TESTS(); 
 	std::getchar();
-	/*temp disable game for tests
-	GameParameters myGameParams; //default to 3x3 tic tac toe
+	//temp disable game for tests
+	GameParameters myGameParams(15,15,5); //default to 3x3 tic tac toe
 	//GameType myGame;
 	GameType myGame(myGameParams);
 	char answer = 'y';
@@ -26,7 +27,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << "Do you want to play again (y/n)? ";
 		cin >> answer;
 	} while(toupper(answer) == 'Y');
-	I*/
+	
 	return 0;
 }
 

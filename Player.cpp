@@ -4,15 +4,15 @@
 using namespace std;
 
 
-Player::Player(string n):name(n),numberOfPlays(0),numberOfWins(0)
+Player::Player(string n):name(n)
 {
 	if (name == "Computer")
 		myMove= computerMove;
 }
-
 Player::~Player(void)
 {
 }
+/* not implemented
 int Player::getNumberOfPlays()
 {
 	return numberOfPlays;
@@ -21,14 +21,14 @@ int Player::getNumberOfWins()
 {
 	return numberOfWins;
 }
+*/
 bool Player::move(int maxRow, int maxCol,GameBoard * gb)
 {
 	int row, col;
 	myMove(row,col,maxRow,maxCol);
 	if((row>maxRow) || (col>maxCol)|| (row<0) || (col<0))
 		return false;
-	//mark Board w/ valid values
-	return gb->markBoard(row,col,myMark);
+	return gb->markBoard(row,col,myMark);	//mark Board w/ valid values
 }
 string Player::getName()
 {
@@ -36,7 +36,9 @@ string Player::getName()
 }
 void Player::setName(string n)
 {
+	
 	name=n;
+	if (name != "Computer")
 	myMove=humanMove;
 }
 void Player::setMark(Mark::Values m)

@@ -1,10 +1,8 @@
 #ifndef GAMETYPE_H
 #define GAMETYPE_H
-//#include "Player.h"
-//class GameBoard; // forward declaration
-//#include "GameBoard.h"
-struct GameParameters;
-class Player;
+
+struct GameParameters; //forward declaration
+class Player;			//forward declaration
 class GameType
 {
 public:
@@ -14,15 +12,11 @@ public:
 	void play(void);
 private:
 	GameParameters &gameParams; // can I declare a reference here, pointer instead maybe
-	//GameBoard *theBoard;
-	//Player **players; // move to gameParams
-	//void swapPlayerIndex(int &,int &);
-	//void setPlayerNames(Player **); 
-	//void setPlayerOrder(int &, int&);
 	void displayGameResults() const;
 	void displayGameStats() const;
 	
 };
+
 //helper
 void swapPlayerIndex(int &,int &);
 void setPlayerOrder(int &, int&);

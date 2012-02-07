@@ -3,7 +3,6 @@
 #include "GameParameters.h"
 #include "GameSquare.h"
 #include "GameResults.h"
-
 #include "Direction.h"
 #include "Position.h"
 #include <string>

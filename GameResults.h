@@ -5,7 +5,6 @@
 #include "Direction.h"
 struct GameResults
 {
-public:
 	GameResults(void);
 	~GameResults(void);
 	Mark::Values winMark;

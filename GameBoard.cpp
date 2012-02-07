@@ -1,19 +1,18 @@
- #include "StdAfx.h"
+#include "StdAfx.h"
 #include "GameBoard.h"
 #include <iostream>
 
 using namespace std;
 
-
 GameBoard::GameBoard(GameParameters& gP):gameParams(gP)
 {
 	typedef  void(*myInc)(Position &);//define myInc as a pointer to inc Funcs
-	//init gameboard
-	gameBoard= new GameSquare *[gameParams.NUMROWS];
+	
+	gameBoard= new GameSquare *[gameParams.NUMROWS];  //init gameboard
 	for (int i=0; i<gameParams.NUMROWS;++i)
 		gameBoard[i]= new GameSquare[gameParams.NUMCOLS];
 	
-	searchFunctionArr= new myInc[NUMBEROFFUNCS];
+	searchFunctionArr= new myInc[NUMBEROFFUNCS];  //init function array
 	searchFunctionArr[0]=acrossInc;
 	searchFunctionArr[1]=downInc;
 	searchFunctionArr[2]=diagInc;
@@ -26,6 +25,12 @@ GameBoard::~GameBoard(void)
 	for(int i=0; i< gameParams.NUMROWS;++i)
 			delete[] gameBoard[i];
 	delete [] gameBoard;
+	/* IDE tells me a pointer to a function cannot be deleted
+	for (int i=0;i<NUMBEROFFUNCS;++i)
+		delete searchFunctionArr[i];
+	*/
+	delete[] searchFunctionArr; 
+
 }
 bool GameBoard::checkFull() const
 {
@@ -45,7 +50,7 @@ void GameBoard::clearBoard()
 }
 bool GameBoard::markBoard(int r, int c, Mark::Values mark)
 {
-	if((gameBoard[r][c].hasValue())|| (mark==Mark::BLANK))
+	if((gameBoard[r][c].hasValue())|| (mark==Mark::BLANK)) // can't mark if has value, can't mark w/ a BLANK
 		return false;
 	else
 	{
@@ -55,8 +60,6 @@ bool GameBoard::markBoard(int r, int c, Mark::Values mark)
 }
 bool GameBoard::checkAllGeneric() 
 {
-	//gameParams.results->win=false;
-	//mark=Mark::BLANK;
 	
 	for(int i=0;i<gameParams.NUMROWS;++i)
 	{
@@ -94,74 +97,60 @@ void GameBoard::displayBoard(string n) const
 }
 bool GameBoard::searchGeneric(Position start,void(*inc)(Position&))
 {
-	//while w/in the gameBoard,look for inARow matches for a win, otherwise lose
-	//gameParams.results->win=false; 
-	//gameParams.results->winMark=Mark::BLANK;
+	
 	bool win=false;
 	int matchCount=1;
 	Position winPos(start);
-	
-	
+		
 	Position first(start); // start count position
 	Position current(start);// variable count position, if current-start >= INAROW, then a win
-	//Position winPos(start);
-	inc(current); // set current one before start to init
+	inc(current); // set current one after start to init
 
 	while(inBounds(current))
 	{
-		if(gameBoard[first.row][first.col].isBlank()||gameBoard[first.row][first.col].getValue()==Mark::W)
+		if(gameBoard[first.row][first.col].isBlank()||gameBoard[first.row][first.col].getValue()==Mark::W) // need a value, not blank or W
 		{
-			// need a value, not blank
 			inc(first);
 			inc(current);
 			matchCount=1;
 		}
-		else if(gameBoard[first.row][first.col].getValue() == gameBoard[current.row][current.col].getValue())
+		else if(gameBoard[first.row][first.col].getValue() == gameBoard[current.row][current.col].getValue()) // match
 		{
 			matchCount++;
 			if(matchCount==gameParams.INAROWTOWIN)
 			{
 				win=true;
 				gameParams.results->winMark=gameBoard[first.row][first.col].getValue();
-				//mark=gameBoard[first.row][first.col].getValue();
-				//gameParams.results->winPos=first;
 				winPos=first;
 				matchCount=1;
 			}
 			inc(current);
 					
 		}
-		else
+		else																								// no match reset the iterators
 		{
-			//inc(first); // see if this helps diags
 			first=current; // move fixed position 
 			inc(current);  //inc current position
 			matchCount=1;   // didn't match reset
 		}
 	}
-	//update result to win if the matches=inARow game requirement
-
+	
 	if(win)
 	{
-		//Mark up the board w/ W to identify the winner, up to the inARow amt
-		//Position winPos=gameParams.results->winPos;
-		//mark=gameParams.results->winMark;
+		
 		gameParams.results->winPos=winPos;
-		
-		
-		for(int i=0; i<gameParams.INAROWTOWIN;++i)
+			
+		for(int i=0; i<gameParams.INAROWTOWIN;++i) //Mark up the board w/ W to identify the winner, up to the inARow amt
 		{
-			//remark board so I can see the winner easily
 			gameBoard[winPos.row][winPos.col].setValue(Mark::W);
-			inc(winPos);//now used as a generic iterator
+			inc(winPos);//now used to iterate
 		}
 		
 		
 	}
 	
 	return win;
-	//return gameParams.results->win;
-	
+		
 }
 bool GameBoard::inBounds(const Position &pos) const
 {

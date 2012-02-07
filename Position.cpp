@@ -6,7 +6,6 @@ Position::Position(int r,int c):row(r),col(c)
 }
 Position::Position(const Position& other)
 {
-	//check for self assignment?
 	row=other.row;
 	col=other.col;
 }

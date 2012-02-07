@@ -1,7 +1,5 @@
 #include "StdAfx.h"
 #include "GameTypeTest.h"
-//#include "GameType.h"
-//#include "GameParameters.h"
 #include "Direction.h"
 #include "GameResults.h"
 
@@ -9,8 +7,6 @@ GameTypeTest::GameTypeTest(void):gP(GameParameters()),gT(GameType(gP))
 {
 	
 }
-
-
 GameTypeTest::~GameTypeTest(void)
 {
 }
@@ -53,8 +49,8 @@ TEST_F(GameTypeTest,resultsReset)
 
 	// reset results
 	gP.results->reset();
+	
 	//test
-		
 	EXPECT_EQ(0,gP.results->numberMarks);
 	EXPECT_FALSE(gP.results->win);
 	EXPECT_EQ(Direction::NONE,gP.results->winDir);
