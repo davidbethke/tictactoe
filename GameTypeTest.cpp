@@ -2,6 +2,7 @@
 #include "GameTypeTest.h"
 #include "Direction.h"
 #include "GameResults.h"
+#include "Player.h"
 
 GameTypeTest::GameTypeTest(void):gP(GameParameters()),gT(GameType(gP))
 {
@@ -58,4 +59,16 @@ TEST_F(GameTypeTest,resultsReset)
 	EXPECT_EQ(0,gP.results->winPlayer);
 	EXPECT_EQ(0,gP.results->winPos.col);
 	EXPECT_EQ(0,gP.results->winPos.row);
+}
+TEST_F(GameTypeTest,playerNameMark)
+{
+	gP.players[0]->setName("dave");
+	gP.players[1]->setName("Dave");
+	gP.players[0]->setMark(Mark::EX);
+	gP.players[1]->setMark(Mark::OH);
+	EXPECT_EQ("dave",gP.players[0]->getName());
+	EXPECT_EQ("Dave",gP.players[1]->getName());
+	EXPECT_EQ(Mark::EX,gP.players[0]->getMark());
+	EXPECT_EQ(Mark::OH,gP.players[1]->getMark());
+
 }

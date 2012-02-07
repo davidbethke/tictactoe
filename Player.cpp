@@ -34,6 +34,10 @@ string Player::getName()
 {
 	return name;
 }
+Mark::Values Player::getMark()
+{
+	return myMark;
+}
 void Player::setName(string n)
 {
 	

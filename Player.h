@@ -16,6 +16,7 @@ public:
 	//int getNumberOfWins();
 	void setName(std::string);
 	void setMark(Mark::Values);
+	Mark::Values getMark();
 	std::string getName();
 	bool move(int, int, GameBoard*);
 private:
