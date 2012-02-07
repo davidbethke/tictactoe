@@ -1,47 +1,53 @@
 #include "StdAfx.h"
+#include "GameParameters.h"
+#include "GameBoard.h"
 #include "GameType.h"
 #include <iostream>
 #include <iomanip>
+
+#include "Player.h"
 using namespace std;
 
-GameType::GameType(GameParameters&  gP):gameParams(gP)
+GameType::GameType(GameParameters&  gP=GameParameters()):gameParams(gP)
 {
-	
-	players = new Player *[gameParams.NUMPLAYERS];
+	/*
+	gameParams.players = new Player *[gameParams.NUMPLAYERS];
 	for(int i=0; i<gameParams.NUMPLAYERS;++i)
-		players[i]= new Player;
-	theBoard= new GameBoard(gameParams);
+		gameParams.players[i]= new Player;
+	*/
+	//theBoard= new GameBoard(gameParams);
+	
 	
 }
 GameType::~GameType(void)
 {
 	for(int i=0;i<gameParams.NUMPLAYERS;++i)
-		delete players[i];
-	delete[] players;
+		delete gameParams.players[i];
+	delete[] gameParams.players;
 }
 void GameType::play()
 {
 	// set player names and marks
-	players[0]->setMark(Mark::OH);
-	players[1]->setMark(Mark::EX);
+	gameParams.players[0]->setMark(Mark::OH);
+	gameParams.players[1]->setMark(Mark::EX);
 	
-	theBoard->clearBoard();
+	gameParams.theBoard->clearBoard();
 	//cout << "Initial Board"<<endl;
-	theBoard->displayBoard("Initial Board");
+	gameParams.theBoard->displayBoard("Initial Board");
 	
-	while(!theBoard->checkFull())
+	while(!gameParams.theBoard->checkFull())
 	{
 		
 		cout << "Player Number:"<<gameParams.currentPlayerNumber<< " Move"<<endl;
-		if(players[gameParams.currentPlayerNumber]->move(gameParams.NUMROWS,gameParams.NUMCOLS,theBoard))
+		if(gameParams.players[gameParams.currentPlayerNumber]->move(gameParams.NUMROWS,gameParams.NUMCOLS,gameParams.theBoard))
 		{
 			
 			//cout << "Board"<<endl;
 			//cout <<"------"<<endl;
-			theBoard->displayBoard("Board");
+			gameParams.theBoard->displayBoard("Board");
 					
 			
-			if(theBoard->checkAllGeneric()) // various algorithms for this 
+			if(gameParams.theBoard->checkAllGeneric()) // various algorithms for this, true if winner
 			{
 				gameParams.NUMBEROFPLAYS++;
 				gameParams.NUMBEROFWINS++;
@@ -55,7 +61,7 @@ void GameType::play()
 				displayGameStats();
 				return; //winner
 			}
-			if(theBoard->checkFull())
+			if(gameParams.theBoard->checkFull()) // true if board is full
 			{
 				gameParams.NUMBEROFPLAYS++;
 				cout << "Game Over,FULL, No Winner, Cats Game"<<endl;
@@ -79,6 +85,7 @@ void GameType::play()
 	return;
 	
 }
+/*
 void GameType::swapPlayerIndex(int & a, int & b)
 {
 	int temp=a;
@@ -107,10 +114,11 @@ void GameType::setPlayerOrder(int& first, int& second)
 	if(answer=='y')
 		swapPlayerIndex(first,second);
 }
+*/
 void GameType::displayGameResults() const
 {
 	cout << "Total Marks Played:"<< gameParams.results->numberMarks<<endl;
-	cout << "Last Player:"<<players[gameParams.currentPlayerNumber]->getName()<<endl;
+	cout << "Last Player:"<<gameParams.players[gameParams.currentPlayerNumber]->getName()<<endl;
 	if(gameParams.results->win)
 	{
 		cout << "Winning Mark is:"<<markValues[gameParams.results->winMark]<<endl; // take enum, translate to string
@@ -124,7 +132,7 @@ void GameType::displayGameStats() const
 	cout << "X Win Percent:"<<setprecision(4)<<(1.0*gameParams.NUMBEROFXWINS/gameParams.NUMBEROFPLAYS)*100.0<<" % O Win Percent:"<<(1.0*gameParams.NUMBEROFOWINS/gameParams.NUMBEROFPLAYS)*100.0<<" %"<<endl;
 	cout << "Final Board"<<endl;
 	cout << "-----------"<<endl;
-	theBoard->displayBoard();
+	gameParams.theBoard->displayBoard();
 }
 void swapPlayerIndex(int & a, int & b)
 {

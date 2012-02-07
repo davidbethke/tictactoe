@@ -3,23 +3,22 @@
 #include <string>
 #include <iostream>
 #include <random>
-#include "GameBoard.h"
+#include "Mark.h"
 
-using namespace std;
+class GameBoard;
 class Player
 {
 public:
-	Player(string n="Computer");
-	//Player(void);
+	Player(std::string n="Computer"); //default Player is Computer
 	~Player(void);
 	int getNumberOfPlays();
 	int getNumberOfWins();
-	void setName(string);
+	void setName(std::string);
 	void setMark(Mark::Values);
-	string getName();
+	std::string getName();
 	bool move(int, int, GameBoard*);
 private:
-	string name;
+	std::string name;
 	int numberOfPlays;
 	int numberOfWins;
 	Mark::Values myMark;
@@ -28,17 +27,17 @@ private:
 void humanMove(int & row, int &col,const int & maxRow, const int &maxCol)
 {
 	
-	cout << "Enter the row (Max Val is "<<maxRow<<")"<<endl;;
-	cin >> row;
-	cout << "Enter the col (Max Val is "<<maxCol<<")"<<endl;
-	cin >> col;
+	std::cout << "Enter the row (Max Val is "<<maxRow<<")"<<std::endl;;
+	std::cin >> row;
+	std::cout << "Enter the col (Max Val is "<<maxCol<<")"<<std::endl;
+	std::cin >> col;
 }
 void computerMove(int & row, int & col, const int & maxRow, const int &maxCol)
 {
 	row= rand()%maxRow;
 	col= rand()%maxCol;
-	std::cout<<"Im a Computer"<<std::endl;
-	std::cout<<"Row:"<<row<<", Col:"<<col<<endl;
+	std::cout<<"ComputerPlayer"<<std::endl;
+	std::cout<<"Row:"<<row<<", Col:"<<col<<std::endl;
 	//random move based on numcols, numrows
 }
 

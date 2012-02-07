@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "Player.h"
-
+#include "GameBoard.h"
+using namespace std;
 
 
 Player::Player(string n):name(n),numberOfPlays(0),numberOfWins(0)
@@ -8,14 +9,6 @@ Player::Player(string n):name(n),numberOfPlays(0),numberOfWins(0)
 	if (name == "Computer")
 		myMove= computerMove;
 }
-/*
-Player::Player():name("Computer"),numberOfPlays(0),numberOfWins(0)
-{
-	if (name == "Computer")
-		myMove= computerMove;
-}
-*/
-
 
 Player::~Player(void)
 {

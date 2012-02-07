@@ -1,15 +1,20 @@
 #include "StdAfx.h"
 #include "GameTypeTest.h"
+//#include "GameType.h"
+//#include "GameParameters.h"
+#include "Direction.h"
+#include "GameResults.h"
 
-
-GameTypeTest::GameTypeTest(void)
+GameTypeTest::GameTypeTest(void):gP(GameParameters()),gT(GameType(gP))
 {
+	
 }
 
 
 GameTypeTest::~GameTypeTest(void)
 {
 }
+
 TEST_F(GameTypeTest,swapPlayerIndex)
 {
 	int current=0, next=1;

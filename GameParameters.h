@@ -1,6 +1,9 @@
 #ifndef GAMEPARAMETERS_H
 #define	GAMEPARAMETERS_H	
-#include "GameResults.h"
+
+class Player; // forward declaration
+struct GameResults;// forward declaration
+class GameBoard;// forward declaration
 
 struct GameParameters
 {
@@ -10,6 +13,7 @@ struct GameParameters
 	const int NUMCOLS;
 	const int INAROWTOWIN;
 	static const int NUMPLAYERS=2;
+	Player **players;
 	int NUMBEROFPLAYS;
 	int NUMBEROFWINS;
 	int NUMBEROFXWINS;
@@ -17,6 +21,7 @@ struct GameParameters
 	int currentPlayerNumber;
 	int nextPlayerNumber;
 	GameResults *results;
+	GameBoard *theBoard;
 };
 
 #endif
