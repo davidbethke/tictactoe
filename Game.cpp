@@ -17,7 +17,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	testing::InitGoogleTest(&argc, argv); 
     RUN_ALL_TESTS(); 
 	std::getchar();
-	//temp disable game for tests
+
 	GameParameters myGameParams(15,15,5); //default to 3x3 tic tac toe
 	//GameType myGame;
 	GameType myGame(myGameParams);
