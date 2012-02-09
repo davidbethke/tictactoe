@@ -16,10 +16,16 @@ bool Player::move(int maxRow, int maxCol,GameBoard * gb)
 {
 	int row, col;
 	myMove(row,col,maxRow,maxCol);
+	//myMove(row,col,gb->,maxCol);
 	if((row>maxRow) || (col>maxCol)|| (row<0) || (col<0))	// invalid move
 		return false;
 	return gb->markBoard(row,col,myMark);					//mark Board w/ valid values
 }
+bool Player::move(GameBoard * gb)
+{
+	return move(gb->gameParams.NUMROWS,gb->gameParams.NUMCOLS,gb);
+}
+
 string Player::getName()
 {
 	return name;

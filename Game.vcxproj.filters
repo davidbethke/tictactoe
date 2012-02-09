@@ -70,6 +70,18 @@
     <ClInclude Include="GameTypeTest.h">
       <Filter>Tests</Filter>
     </ClInclude>
+    <ClInclude Include="GameParametersTest.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTypeHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameParametersHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -107,6 +119,18 @@
     </ClCompile>
     <ClCompile Include="GameTypeTest.cpp">
       <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="GameParametersTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTypeHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameParametersHelper.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

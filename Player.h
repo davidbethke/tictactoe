@@ -11,6 +11,7 @@ public:
 	Player(std::string n="Computer"); //default Player is Computer
 	~Player(void);
 	bool move(int, int, GameBoard*);
+	bool move(GameBoard*); // Im a friend of GameBoard
 	void setName(std::string);
 	void setMark(Mark::Values);
 	Mark::Values getMark();

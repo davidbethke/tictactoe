@@ -6,9 +6,10 @@
 #include "Direction.h"
 #include "Position.h"
 #include <string>
-
+#include "Player.h"
 class GameBoard
 {
+	friend bool Player::move(GameBoard *); //makes move a little read nicer
 public:
 	
 	GameBoard(GameParameters& gP);
@@ -20,6 +21,7 @@ public:
 	void displayBoard(std::string n="") const;
 	
 private:
+
 	static const int NUMBEROFFUNCS=4;// funcs for inc, across, down, diag1, diag2
 	GameParameters& gameParams; 
 	GameSquare **gameBoard;

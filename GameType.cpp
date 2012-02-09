@@ -31,9 +31,10 @@ void GameType::play()
 	{
 		
 		cout << "Player Number:"<<gameParams.currentPlayerNumber<< " Name:"<< gameParams.players[gameParams.currentPlayerNumber]->getName()<<" Move"<<endl;
-		if(gameParams.players[gameParams.currentPlayerNumber]->move(gameParams.NUMROWS,gameParams.NUMCOLS,theBoard)) //true if valid mmove
+		//if(gameParams.players[gameParams.currentPlayerNumber]->move(gameParams.NUMROWS,gameParams.NUMCOLS,theBoard)) //true if valid move
+		if(gameParams.players[gameParams.currentPlayerNumber]->move(theBoard)) //true if valid move, use friend version
 		{
-			
+		
 			theBoard->displayBoard("Board");
 						
 			if(theBoard->checkAllGeneric()) // various funcs for this, true if winner

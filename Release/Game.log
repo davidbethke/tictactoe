@@ -1,0 +1,39 @@
+﻿Build started 2/9/2012 3:20:12 PM.
+     1>Project "D:\Users\dave\documents\visual studio 2010\Projects\Game\Game\Game.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Release\Game.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\Game.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GameType.cpp
+         GameType.cpp
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\dave\documents\visual studio 2010\Projects\Game\Release\Game.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\Game.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Users\dave\documents\visual studio 2010\Projects\Game\Release\Game.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\dave\documents\visual studio 2010\Projects\Game\Release\Game.lib" /MACHINE:X86 Release\Game.res
+         Release\Game.obj
+         Release\GameBoard.obj
+         Release\GameParameters.obj
+         Release\GameParametersHelper.obj
+         Release\GameResults.obj
+         Release\GameSquare.obj
+         Release\GameType.obj
+         Release\GameTypeHelper.obj
+         Release\Player.obj
+         Release\PlayerHelper.obj
+         Release\Position.obj
+         Release\stdafx.obj  /FORCE:MULTIPLE  /ignore:4006 
+     1>D:\Users\dave\documents\visual studio 2010\Projects\Game\Release\Game.exe : warning LNK4088: image being generated due to /FORCE option; image may not run
+         Generating code
+         Finished generating code
+     1>D:\Users\dave\documents\visual studio 2010\Projects\Game\Release\Game.exe : warning LNK4088: image being generated due to /FORCE option; image may not run
+         Game.vcxproj -> D:\Users\dave\documents\visual studio 2010\Projects\Game\Release\Game.exe
+       Manifest:
+         D:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Users\dave\documents\visual studio 2010\Projects\Game\Release\Game.exe;#1" /manifest Release\Game.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\Game.unsuccessfulbuild".
+         Touching "Release\Game.lastbuildstate".
+     1>Done Building Project "D:\Users\dave\documents\visual studio 2010\Projects\Game\Game\Game.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:20.65
