@@ -16,9 +16,13 @@ GameType::~GameType(void)
 }
 void GameType::play()
 {
-	// set player names and marks
-	setPlayerNames(gameParams.players);
-	setPlayerOrder(gameParams.currentPlayerNumber,gameParams.nextPlayerNumber);
+	
+	if(!gameParams.replay)	// set player names and marks, the first time thru
+	{
+		gameParams.replay=true;
+		setPlayerNames(gameParams.players);
+		setPlayerOrder(gameParams.currentPlayerNumber,gameParams.nextPlayerNumber);
+	}
 	
 	theBoard->clearBoard();
 	theBoard->displayBoard("Initial Board");

@@ -12,13 +12,14 @@ struct GameParameters
 	const int NUMCOLS;
 	const int INAROWTOWIN;
 	static const int NUMPLAYERS=2;
-	Player **players;
 	int NUMBEROFPLAYS;
 	int NUMBEROFWINS;
 	int NUMBEROFXWINS;
 	int NUMBEROFOWINS;
 	int currentPlayerNumber;
 	int nextPlayerNumber;
+	bool replay;
+	Player **players;
 	GameResults *results;
 };
 
