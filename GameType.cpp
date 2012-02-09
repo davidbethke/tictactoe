@@ -1,5 +1,5 @@
 #include "StdAfx.h"
-#include "GameParameters.h"
+//#include "GameParameters.h"
 #include "GameBoard.h"
 #include "GameType.h"
 #include <iostream>
@@ -8,24 +8,12 @@
 #include "Player.h"
 using namespace std;
 
-GameType::GameType(GameParameters&  gP=GameParameters()):gameParams(gP)
+GameType::GameType(GameParameters&  gP):gameParams(gP)
 {
-	/*
-	gameParams.players = new Player *[gameParams.NUMPLAYERS];
-	for(int i=0; i<gameParams.NUMPLAYERS;++i)
-		gameParams.players[i]= new Player;
-	*/
 	theBoard= new GameBoard(gameParams);
-	
-	
 }
 GameType::~GameType(void)
 {
-	/*
-	for(int i=0;i<gameParams.NUMPLAYERS;++i)
-		delete gameParams.players[i];
-	delete[] gameParams.players;
-	*/
 	delete theBoard;
 }
 void GameType::play()

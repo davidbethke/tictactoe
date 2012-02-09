@@ -1,6 +1,10 @@
 
 #include "StdAfx.h"
 #include "GameBoardTest.h"
+GameBoardTest::GameBoardTest():gP(),gb(gP)
+{
+}
+
 bool GameBoardTest::fillBoard(const int numRows, const int numCols,const Mark::Values & mark )
 {
 	bool result=false;
@@ -76,6 +80,7 @@ TEST_F(GameBoardTest,markBoard)
 	EXPECT_TRUE(gb.markBoard(2,0,Mark::W));
 	EXPECT_FALSE(gb.markBoard(1,0,Mark::BLANK));
 }
+
 TEST_F(GameBoardTest,checkFullBlank)
 {
 	bool result=false;

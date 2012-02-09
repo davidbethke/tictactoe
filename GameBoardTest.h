@@ -10,8 +10,8 @@ class GameBoardTest :
 protected:
 	virtual void SetUp()
 	{
-		GameParameters gP= GameParameters();
-		GameBoard gB=GameBoard(gP);
+		//GameParameters gP= GameParameters();
+		//GameBoard gB=GameBoard();
 	
 	}
 	virtual void TearDown()
@@ -19,8 +19,12 @@ protected:
 	}
 	bool fillBoard(const int numRows, const int numCols,const Mark::Values & mark);
 	bool markWinner(const Direction&,const int&, int, int,const Mark::Values&);
+	GameParameters gP;
 	GameBoard gb;
-	//GameParameters gP;
+	
+public:
+	GameBoardTest();
+	
 };
 #endif
 

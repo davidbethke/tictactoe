@@ -1,14 +1,14 @@
 #ifndef GAMETYPE_H
 #define GAMETYPE_H
-
-struct GameParameters; //forward declaration
-class Player;			//forward declaration
+#include "GameParameters.h"
+//struct GameParameters; //forward declaration
+//class Player;			//forward declaration
 class GameBoard;
 class GameType
 {
 public:
 	
-	GameType(GameParameters& gP); //default GameParameters if none specified
+	GameType(GameParameters& gP=GameParameters()); //default GameParameters if none specified
 	~GameType(void);
 	void play(void);
 private:

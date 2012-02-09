@@ -42,10 +42,11 @@ int _tmain(int argc, _TCHAR* argv[])
 		
 		
 	}
-#endif
-	//GameParameters myGameParams(gameRows,gameCols,gameInARow);
-	GameParameters myGameParams;
+
+	GameParameters myGameParams(gameRows,gameCols,gameInARow);
+	//GameParameters myGameParams;
 	GameType myGame(myGameParams);
+	#endif
 #ifdef NDEBUG
 	char answer = 'y';
 	do {
