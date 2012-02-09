@@ -1,10 +1,10 @@
 #ifndef GAMETYPE_H
 #define GAMETYPE_H
 #include "GameParameters.h"
-//struct GameParameters; //forward declaration
-//class Player;			//forward declaration
-class GameBoard;
-class GameType
+#include "GameTypeHelper.h"
+
+class GameBoard;	//forward declaration
+class GameType		//forward declaration
 {
 public:
 	
@@ -16,11 +16,6 @@ private:
 	GameBoard *theBoard;
 	void displayGameResults() const;
 	void displayGameStats() const;
-	
 };
 
-//helper
-void swapPlayerIndex(int &,int &);
-void setPlayerOrder(int &, int&);
-void setPlayerNames(Player **);
-#endif
+#endif //GAMETYPE_H

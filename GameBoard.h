@@ -11,7 +11,7 @@ class GameBoard
 {
 public:
 	
-	GameBoard(GameParameters& gP=GameParameters());
+	GameBoard(GameParameters& gP);
 	~GameBoard(void);
 	bool markBoard(int,int,Mark::Values);
 	bool checkFull(void) const;
@@ -21,7 +21,7 @@ public:
 	
 private:
 	static const int NUMBEROFFUNCS=4;// funcs for inc, across, down, diag1, diag2
-	GameParameters& gameParams;  //If this isn't declared a ref, then when theBoard is deleted in GameParams, get exception
+	GameParameters& gameParams; 
 	GameSquare **gameBoard;
 	void(**searchFunctionArr)(Position&);
 	bool searchGeneric(Position,void(*fun)(Position&));
