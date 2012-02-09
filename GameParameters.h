@@ -1,6 +1,6 @@
 #ifndef GAMEPARAMETERS_H
 #define	GAMEPARAMETERS_H	
-
+#include "GameParametersHelper.h"
 class Player; // forward declaration
 struct GameResults;// forward declaration
 class GameBoard;// forward declaration

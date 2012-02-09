@@ -3,7 +3,7 @@
 #include "GameBoard.h"
 #include "GameType.h"
 #include <iostream>
-#include <iomanip>
+
 
 #include "Player.h"
 using namespace std;
@@ -18,6 +18,7 @@ GameType::~GameType(void)
 }
 void GameType::play()
 {
+	bool playersSet=false;
 	// set player names and marks
 	setPlayerNames(gameParams.players);
 	setPlayerOrder(gameParams.currentPlayerNumber,gameParams.nextPlayerNumber);
@@ -43,16 +44,18 @@ void GameType::play()
 				else
 					gameParams.NUMBEROFOWINS++;
 				cout << "Winner!"<<endl;
-				displayGameResults();
-				displayGameStats();
+				displayGameResults(gameParams);
+				displayGameStats(gameParams);
+				theBoard->displayBoard("Final Board");
 				return; //winner
 			}
 			if(theBoard->checkFull()) // true if board is full
 			{
 				gameParams.NUMBEROFPLAYS++;
 				cout << "Game Over,FULL, No Winner, Cats Game"<<endl;
-				displayGameResults();
-				displayGameStats();
+				displayGameResults(gameParams);
+				displayGameStats(gameParams);
+				theBoard->displayBoard("Final Board");
 				return;// no winner
 			}
 			
@@ -65,29 +68,8 @@ void GameType::play()
 			cout << "Try Again"<<endl;
 		}
 	}
-	//return;
-	
 }
-void GameType::displayGameResults() const
-{
-	cout << "Total Marks Played:"<< gameParams.results->numberMarks<<endl;
-	cout << "Last Player:"<<gameParams.players[gameParams.currentPlayerNumber]->getName()<<endl;
-	if(gameParams.results->win)
-	{
-		cout << "Winning Mark is:"<<markValues[gameParams.results->winMark]<<endl; // take enum, translate to string
-		cout << "Winning Direction is:"<<DirString[gameParams.results->winDir]<<endl;
-	}
-	cout << "In a row to win:"<< gameParams.INAROWTOWIN<<endl;
-}
-void GameType::displayGameStats() const
-{
-	cout << "Game Stats: Plays:"<<gameParams.NUMBEROFPLAYS<<" WIN PERCENT:"<<(1.0*gameParams.NUMBEROFWINS/gameParams.NUMBEROFPLAYS)*100.0<<"%"<<endl;
-	cout << "X Win Percent:"<<setprecision(4)<<(1.0*gameParams.NUMBEROFXWINS/gameParams.NUMBEROFPLAYS)*100.0<<" % O Win Percent:"
-							<<(1.0*gameParams.NUMBEROFOWINS/gameParams.NUMBEROFPLAYS)*100.0<<" %"<<endl;
-	cout << "Final Board"<<endl;
-	cout << "-----------"<<endl;
-	theBoard->displayBoard();
-}
+
 
 
 	
