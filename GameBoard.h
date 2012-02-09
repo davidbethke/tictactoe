@@ -21,7 +21,7 @@ public:
 	
 private:
 	static const int NUMBEROFFUNCS=4;// funcs for inc, across, down, diag1, diag2
-	GameParameters gameParams;
+	GameParameters& gameParams;  //If this isn't declared a ref, then when theBoard is deleted in GameParams, get exception
 	GameSquare **gameBoard;
 	void(**searchFunctionArr)(Position&);
 	bool searchGeneric(Position,void(*fun)(Position&));

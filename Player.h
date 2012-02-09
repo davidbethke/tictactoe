@@ -36,7 +36,7 @@ void humanMove(int & row, int &col,const int & maxRow, const int &maxCol)
 }
 void computerMove(int & row, int & col, const int & maxRow, const int &maxCol)
 {
-	srand(time(NULL));			// more random? set seed based on time, found online
+	//srand(time(NULL));			// more random? set seed based on time, found online
 	row= rand()%maxRow;			//random move based on numcols, numrows
 	col= rand()%maxCol;
 	std::cout<<"ComputerPlayer"<<std::endl;

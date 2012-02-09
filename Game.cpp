@@ -24,6 +24,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::getchar();
 	#endif
 	//choose game
+#ifdef NDEBUG
 	char gameAnswer='n';
 	int gameRows=3, gameCols=3, gameInARow=3; //default to tic tac toe
 	
@@ -41,16 +42,18 @@ int _tmain(int argc, _TCHAR* argv[])
 		
 		
 	}
-	GameParameters myGameParams(gameRows,gameCols,gameInARow);
+#endif
+	//GameParameters myGameParams(gameRows,gameCols,gameInARow);
+	GameParameters myGameParams;
 	GameType myGame(myGameParams);
-	
+#ifdef NDEBUG
 	char answer = 'y';
 	do {
 		myGame.play();
 		cout << "Do you want to play again (y/n)? ";
 		cin >> answer;
 	} while(toupper(answer) == 'Y');
-	
+#endif
 	return 0;
 }
 

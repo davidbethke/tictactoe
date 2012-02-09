@@ -1,4 +1,4 @@
-#ifdef _DEBUG
+
 #include "StdAfx.h"
 #include "GameTypeTest.h"
 #include "Direction.h"
@@ -73,4 +73,3 @@ TEST_F(GameTypeTest,playerNameMark)
 	EXPECT_EQ(Mark::OH,gP.players[1]->getMark());
 
 }
-#endif

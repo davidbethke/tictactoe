@@ -21,9 +21,11 @@ GameType::GameType(GameParameters&  gP=GameParameters()):gameParams(gP)
 }
 GameType::~GameType(void)
 {
+	/*
 	for(int i=0;i<gameParams.NUMPLAYERS;++i)
 		delete gameParams.players[i];
 	delete[] gameParams.players;
+	*/
 }
 void GameType::play()
 {
