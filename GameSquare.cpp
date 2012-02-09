@@ -8,7 +8,7 @@ GameSquare::GameSquare(void):mark(Mark::BLANK)
 }
 GameSquare::~GameSquare(void)
 {
-	// do nothing
+	
 }
 bool GameSquare::isBlank() const
 {
@@ -18,10 +18,10 @@ Mark::Values GameSquare::getValue() const
 {
 	return mark;
 }
-bool GameSquare::setValue(Mark::Values s)
+void GameSquare::setValue(Mark::Values s)
 {
 	mark=s;
-	return true; // part of the check for a valid move
+	//return true; // part of the check for a valid move
 }
 bool GameSquare::hasValue() const
 {

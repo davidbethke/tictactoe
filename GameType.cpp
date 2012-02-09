@@ -3,8 +3,6 @@
 #include "GameBoard.h"
 #include "GameType.h"
 #include <iostream>
-
-
 #include "Player.h"
 using namespace std;
 
@@ -18,7 +16,6 @@ GameType::~GameType(void)
 }
 void GameType::play()
 {
-	bool playersSet=false;
 	// set player names and marks
 	setPlayerNames(gameParams.players);
 	setPlayerOrder(gameParams.currentPlayerNumber,gameParams.nextPlayerNumber);
@@ -35,7 +32,7 @@ void GameType::play()
 			
 			theBoard->displayBoard("Board");
 						
-			if(theBoard->checkAllGeneric()) // various algorithms for this, true if winner
+			if(theBoard->checkAllGeneric()) // various funcs for this, true if winner
 			{
 				gameParams.NUMBEROFPLAYS++;
 				gameParams.NUMBEROFWINS++;

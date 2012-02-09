@@ -12,7 +12,7 @@ public:
 	~GameType(void);
 	void play(void);
 private:
-	GameParameters &gameParams; // can I declare a reference here, pointer instead maybe, let's me forward declare above
+	GameParameters &gameParams;
 	GameBoard *theBoard;
 };
 

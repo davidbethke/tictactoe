@@ -11,7 +11,7 @@ public:
 	~GameSquare(void);
 	bool isBlank() const;
 	bool hasValue() const;
-	bool setValue(Mark::Values);
+	void setValue(Mark::Values);
 	Mark::Values getValue() const;
 	std::string getSValue() const;
 

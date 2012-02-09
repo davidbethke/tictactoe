@@ -3,7 +3,6 @@
 #include "GameParametersHelper.h"
 class Player; // forward declaration
 struct GameResults;// forward declaration
-class GameBoard;// forward declaration
 
 struct GameParameters
 {
@@ -21,7 +20,6 @@ struct GameParameters
 	int currentPlayerNumber;
 	int nextPlayerNumber;
 	GameResults *results;
-	//GameBoard	*theBoard;
 };
 
 #endif

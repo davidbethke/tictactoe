@@ -8,10 +8,10 @@ GameParameters::GameParameters(int r,int c, int rw):NUMROWS(r),NUMCOLS(c),INAROW
 				NUMBEROFWINS(0),NUMBEROFOWINS(0),NUMBEROFXWINS(0),currentPlayerNumber(0),nextPlayerNumber(1)
 {
 	
-	players = new Player *[NUMPLAYERS];	//init players
+	players = new Player *[NUMPLAYERS];	
 	for(int i=0; i<NUMPLAYERS;++i)
 		players[i]= new Player;
-	results=new GameResults;			//init results
+	results=new GameResults;			
 	
 }
 GameParameters::~GameParameters(void)

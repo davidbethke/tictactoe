@@ -5,7 +5,6 @@
 using namespace std;
 void humanMove(int & row, int &col,const int & maxRow, const int &maxCol)
 {
-	
 	std::cout << "Enter the row (Max Val is "<<maxRow<<")"<<std::endl;;
 	std::cin >> row;
 	std::cout << "Enter the col (Max Val is "<<maxCol<<")"<<std::endl;

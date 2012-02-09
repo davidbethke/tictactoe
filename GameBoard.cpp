@@ -54,7 +54,8 @@ bool GameBoard::markBoard(int r, int c, Mark::Values mark)
 	else
 	{
 		gameParams.results->numberMarks++;
-		return gameBoard[r][c].setValue(mark);
+		gameBoard[r][c].setValue(mark);
+		return true; // set should be void
 	}
 }
 bool GameBoard::checkAllGeneric() 

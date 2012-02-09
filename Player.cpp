@@ -16,9 +16,9 @@ bool Player::move(int maxRow, int maxCol,GameBoard * gb)
 {
 	int row, col;
 	myMove(row,col,maxRow,maxCol);
-	if((row>maxRow) || (col>maxCol)|| (row<0) || (col<0))
+	if((row>maxRow) || (col>maxCol)|| (row<0) || (col<0))	// invalid move
 		return false;
-	return gb->markBoard(row,col,myMark);	//mark Board w/ valid values
+	return gb->markBoard(row,col,myMark);					//mark Board w/ valid values
 }
 string Player::getName()
 {
@@ -30,10 +30,9 @@ Mark::Values Player::getMark()
 }
 void Player::setName(string n)
 {
-	
 	name=n;
 	if (name != "Computer")
-	myMove=humanMove;
+		myMove=humanMove;
 }
 void Player::setMark(Mark::Values m)
 {
