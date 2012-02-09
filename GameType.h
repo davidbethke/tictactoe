@@ -3,6 +3,7 @@
 
 struct GameParameters; //forward declaration
 class Player;			//forward declaration
+class GameBoard;
 class GameType
 {
 public:
@@ -12,6 +13,7 @@ public:
 	void play(void);
 private:
 	GameParameters &gameParams; // can I declare a reference here, pointer instead maybe, let's me forward declare above
+	GameBoard *theBoard;
 	void displayGameResults() const;
 	void displayGameStats() const;
 	

@@ -11,7 +11,7 @@ GameParameters::GameParameters(int r,int c, int rw):NUMROWS(r),NUMCOLS(c),INAROW
 	for(int i=0; i<NUMPLAYERS;++i)
 		players[i]= new Player;
 	results=new GameResults;			//init results
-	theBoard = new GameBoard(*this);	//init gameboard
+	//theBoard = new GameBoard(*this);	//init gameboard
 }
 GameParameters::~GameParameters(void)
 {
@@ -21,6 +21,6 @@ GameParameters::~GameParameters(void)
 	
 	delete[] players;
 	delete results;
-	delete theBoard;
+	//delete theBoard;
 	
 }

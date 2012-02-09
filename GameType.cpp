@@ -15,7 +15,7 @@ GameType::GameType(GameParameters&  gP=GameParameters()):gameParams(gP)
 	for(int i=0; i<gameParams.NUMPLAYERS;++i)
 		gameParams.players[i]= new Player;
 	*/
-	//theBoard= new GameBoard(gameParams);
+	theBoard= new GameBoard(gameParams);
 	
 	
 }
@@ -26,6 +26,7 @@ GameType::~GameType(void)
 		delete gameParams.players[i];
 	delete[] gameParams.players;
 	*/
+	delete theBoard;
 }
 void GameType::play()
 {
@@ -33,19 +34,19 @@ void GameType::play()
 	setPlayerNames(gameParams.players);
 	setPlayerOrder(gameParams.currentPlayerNumber,gameParams.nextPlayerNumber);
 	
-	gameParams.theBoard->clearBoard();
-	gameParams.theBoard->displayBoard("Initial Board");
+	theBoard->clearBoard();
+	theBoard->displayBoard("Initial Board");
 	
-	while(!gameParams.theBoard->checkFull())
+	while(!theBoard->checkFull())
 	{
 		
 		cout << "Player Number:"<<gameParams.currentPlayerNumber<< " Name:"<< gameParams.players[gameParams.currentPlayerNumber]->getName()<<" Move"<<endl;
-		if(gameParams.players[gameParams.currentPlayerNumber]->move(gameParams.NUMROWS,gameParams.NUMCOLS,gameParams.theBoard)) //true if valid mmove
+		if(gameParams.players[gameParams.currentPlayerNumber]->move(gameParams.NUMROWS,gameParams.NUMCOLS,theBoard)) //true if valid mmove
 		{
 			
-			gameParams.theBoard->displayBoard("Board");
+			theBoard->displayBoard("Board");
 						
-			if(gameParams.theBoard->checkAllGeneric()) // various algorithms for this, true if winner
+			if(theBoard->checkAllGeneric()) // various algorithms for this, true if winner
 			{
 				gameParams.NUMBEROFPLAYS++;
 				gameParams.NUMBEROFWINS++;
@@ -58,7 +59,7 @@ void GameType::play()
 				displayGameStats();
 				return; //winner
 			}
-			if(gameParams.theBoard->checkFull()) // true if board is full
+			if(theBoard->checkFull()) // true if board is full
 			{
 				gameParams.NUMBEROFPLAYS++;
 				cout << "Game Over,FULL, No Winner, Cats Game"<<endl;
@@ -97,7 +98,7 @@ void GameType::displayGameStats() const
 							<<(1.0*gameParams.NUMBEROFOWINS/gameParams.NUMBEROFPLAYS)*100.0<<" %"<<endl;
 	cout << "Final Board"<<endl;
 	cout << "-----------"<<endl;
-	gameParams.theBoard->displayBoard();
+	theBoard->displayBoard();
 }
 void swapPlayerIndex(int & a, int & b)
 {

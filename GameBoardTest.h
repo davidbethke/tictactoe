@@ -3,12 +3,15 @@
 #define GAMEBOARDTEST_H
 #include "d:\users\dave\documents\visual studio 2010\projects\gtest\include\gtest\gtest.h"
 #include "GameBoard.h"
+#include "GameParameters.h"
 class GameBoardTest :
 	public ::testing::Test
 {
 protected:
 	virtual void SetUp()
 	{
+		GameParameters gP= GameParameters();
+		GameBoard gB=GameBoard(gP);
 	
 	}
 	virtual void TearDown()
