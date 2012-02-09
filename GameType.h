@@ -11,7 +11,7 @@ public:
 	~GameType(void);
 	void play(void);
 private:
-	GameParameters &gameParams; // can I declare a reference here, pointer instead maybe
+	GameParameters &gameParams; // can I declare a reference here, pointer instead maybe, let's me forward declare above
 	void displayGameResults() const;
 	void displayGameStats() const;
 	

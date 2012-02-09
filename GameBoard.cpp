@@ -6,13 +6,13 @@ using namespace std;
 
 GameBoard::GameBoard(GameParameters& gP):gameParams(gP)
 {
-	typedef  void(*myInc)(Position &);//define myInc as a pointer to inc Funcs
+	typedef  void(*myInc)(Position &);					//define myInc as a pointer to inc Funcs
 	
-	gameBoard= new GameSquare *[gameParams.NUMROWS];  //init gameboard
+	gameBoard= new GameSquare *[gameParams.NUMROWS];	//init gameboard
 	for (int i=0; i<gameParams.NUMROWS;++i)
 		gameBoard[i]= new GameSquare[gameParams.NUMCOLS];
 	
-	searchFunctionArr= new myInc[NUMBEROFFUNCS];  //init function array
+	searchFunctionArr= new myInc[NUMBEROFFUNCS];		//init function array
 	searchFunctionArr[0]=acrossInc;
 	searchFunctionArr[1]=downInc;
 	searchFunctionArr[2]=diagInc;
@@ -30,7 +30,6 @@ GameBoard::~GameBoard(void)
 		delete searchFunctionArr[i];
 	*/
 	delete[] searchFunctionArr; 
-
 }
 bool GameBoard::checkFull() const
 {
@@ -65,7 +64,7 @@ bool GameBoard::checkAllGeneric()
 	{
 		for(int j=0;j<gameParams.NUMCOLS;++j)
 		{
-			Position startPos(i,j);//search this gamesquare w/ all inc functions
+			Position startPos(i,j);						//search this gamesquare w/ all inc functions
 			for(int k=0;k<NUMBEROFFUNCS;++k)
 			{
 				if(searchGeneric(startPos,searchFunctionArr[k]))
@@ -102,9 +101,9 @@ bool GameBoard::searchGeneric(Position start,void(*inc)(Position&))
 	int matchCount=1;
 	Position winPos(start);
 		
-	Position first(start); // start count position
-	Position current(start);// variable count position, if current-start >= INAROW, then a win
-	inc(current); // set current one after start to init
+	Position first(start);					// start count position
+	Position current(start);				// variable count position, if current-start >= INAROW, then a win
+	inc(current);							// set current one after start to init
 
 	while(inBounds(current))
 	{
@@ -127,7 +126,7 @@ bool GameBoard::searchGeneric(Position start,void(*inc)(Position&))
 			inc(current);
 					
 		}
-		else																								// no match reset the iterators
+		else				// no match reset the iterators
 		{
 			first=current; // move fixed position 
 			inc(current);  //inc current position
@@ -143,7 +142,7 @@ bool GameBoard::searchGeneric(Position start,void(*inc)(Position&))
 		for(int i=0; i<gameParams.INAROWTOWIN;++i) //Mark up the board w/ W to identify the winner, up to the inARow amt
 		{
 			gameBoard[winPos.row][winPos.col].setValue(Mark::W);
-			inc(winPos);//now used to iterate
+			inc(winPos);							//now used to iterate
 		}
 		
 		

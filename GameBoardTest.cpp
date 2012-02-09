@@ -1,3 +1,4 @@
+#ifdef _DEBUG
 #include "StdAfx.h"
 #include "GameBoardTest.h"
 bool GameBoardTest::fillBoard(const int numRows, const int numCols,const Mark::Values & mark )
@@ -222,3 +223,4 @@ TEST_F(GameBoardTest,markOutOfBounds)
 
 
 
+#endif

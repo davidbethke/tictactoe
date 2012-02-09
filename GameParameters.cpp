@@ -15,10 +15,10 @@ GameParameters::GameParameters(int r,int c, int rw):NUMROWS(r),NUMCOLS(c),INAROW
 }
 GameParameters::~GameParameters(void)
 {
-	/* causes exception! running test
-	for(int i=0; i<NUMPLAYERS;++i)
-		delete players[i];
-		*/
+	// causes exception! running test
+	//for(int i=0; i<NUMPLAYERS;++i)
+	//	delete players[i];
+		
 	//delete[] players;
 	//delete results;
 	//delete theBoard;

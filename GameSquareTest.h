@@ -1,4 +1,5 @@
-#pragma once
+//#pragma once
+#ifdef _DEBUG
 #include "d:\users\dave\documents\visual studio 2010\projects\gtest\include\gtest\gtest.h"
 #include "GameSquare.h"
 class GameSquareTest :
@@ -19,6 +20,6 @@ protected:
 	GameSquare gsO,gsX,gsB,gsW;
 
 };
-
+#endif
 
 

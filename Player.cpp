@@ -12,16 +12,6 @@ Player::Player(string n):name(n)
 Player::~Player(void)
 {
 }
-/* not implemented
-int Player::getNumberOfPlays()
-{
-	return numberOfPlays;
-}
-int Player::getNumberOfWins()
-{
-	return numberOfWins;
-}
-*/
 bool Player::move(int maxRow, int maxCol,GameBoard * gb)
 {
 	int row, col;

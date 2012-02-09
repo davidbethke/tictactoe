@@ -1,3 +1,4 @@
+#ifdef _DEBUG
 #include "StdAfx.h"
 #include "GameSquareTest.h"
 
@@ -29,3 +30,4 @@ TEST_F(GameSquareTest,getSvalue)
 	EXPECT_EQ("W",gsW.getSValue());
 
 }
+#endif

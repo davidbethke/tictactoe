@@ -21,7 +21,7 @@ struct GameParameters
 	int currentPlayerNumber;
 	int nextPlayerNumber;
 	GameResults *results;
-	GameBoard *theBoard;
+	GameBoard	*theBoard;
 };
 
 #endif

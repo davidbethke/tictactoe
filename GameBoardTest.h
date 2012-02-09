@@ -1,4 +1,5 @@
-#pragma once
+//#pragma once
+#ifdef _DEBUG
 #define GAMEBOARDTEST_H
 #include "d:\users\dave\documents\visual studio 2010\projects\gtest\include\gtest\gtest.h"
 #include "GameBoard.h"
@@ -18,4 +19,5 @@ protected:
 	GameBoard gb;
 	//GameParameters gP;
 };
+#endif
 

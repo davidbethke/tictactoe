@@ -5,18 +5,24 @@
 #include<iostream>
 #include"GameType.h"
 #include "GameParameters.h"
+#ifdef _DEBUG
 #include "gtest/gtest.h"
-using namespace std;
+
+
 TEST(SampleTest,test1)
 {
 	EXPECT_EQ(1,1);
 }
-
+#endif
+using namespace std;
 int _tmain(int argc, _TCHAR* argv[])
 {
+	//enable only for  DEBUG
+	#ifdef _DEBUG
 	testing::InitGoogleTest(&argc, argv); 
     RUN_ALL_TESTS(); 
 	std::getchar();
+	#endif
 	//choose game
 	char gameAnswer='n';
 	int gameRows=3, gameCols=3, gameInARow=3; //default to tic tac toe

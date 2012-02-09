@@ -74,6 +74,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalOptions> /FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -85,13 +86,19 @@
   <ItemGroup>
     <ClInclude Include="Direction.h" />
     <ClInclude Include="GameBoard.h" />
-    <ClInclude Include="GameBoardTest.h" />
+    <ClInclude Include="GameBoardTest.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="GameParameters.h" />
     <ClInclude Include="GameResults.h" />
     <ClInclude Include="GameSquare.h" />
-    <ClInclude Include="GameSquareTest.h" />
+    <ClInclude Include="GameSquareTest.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="GameType.h" />
-    <ClInclude Include="GameTypeTest.h" />
+    <ClInclude Include="GameTypeTest.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Mark.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
@@ -102,13 +109,19 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameBoard.cpp" />
-    <ClCompile Include="GameBoardTest.cpp" />
+    <ClCompile Include="GameBoardTest.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GameParameters.cpp" />
     <ClCompile Include="GameResults.cpp" />
     <ClCompile Include="GameSquare.cpp" />
-    <ClCompile Include="GameSquareTest.cpp" />
+    <ClCompile Include="GameSquareTest.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GameType.cpp" />
-    <ClCompile Include="GameTypeTest.cpp" />
+    <ClCompile Include="GameTypeTest.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="stdafx.cpp">
