@@ -17,10 +17,27 @@ int _tmain(int argc, _TCHAR* argv[])
 	testing::InitGoogleTest(&argc, argv); 
     RUN_ALL_TESTS(); 
 	std::getchar();
-
-	GameParameters myGameParams(15,15,5); //default to 3x3 tic tac toe
-	//GameType myGame;
+	//choose game
+	char gameAnswer='n';
+	int gameRows=3, gameCols=3, gameInARow=3; //default to tic tac toe
+	
+	cout << "Custom game (y) or Tic Tac Toe game(n)"<<endl;
+	cin >>gameAnswer;
+	if(gameAnswer=='y')
+	{
+		cout <<"Enter your response carefully, there is no error checking"<<endl;
+		cout <<"Number of Rows in the Board"<<endl;
+		cin>>gameRows;
+		cout <<"Number of Cols in the Board"<<endl;
+		cin>>gameCols;
+		cout <<"Number of Marks in A Row to Win"<<endl;
+		cin>>gameInARow;
+		
+		
+	}
+	GameParameters myGameParams(gameRows,gameCols,gameInARow);
 	GameType myGame(myGameParams);
+	
 	char answer = 'y';
 	do {
 		myGame.play();
