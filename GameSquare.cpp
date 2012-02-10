@@ -14,14 +14,14 @@ bool GameSquare::isBlank() const
 {
 	return (mark == Mark::BLANK);
 }
-Mark::Values GameSquare::getValue() const
+Mark GameSquare::getValue() const
 {
 	return mark;
 }
-void GameSquare::setValue(Mark::Values s)
+void GameSquare::setValue(Mark s)
 {
 	mark=s;
-	//return true; // part of the check for a valid move
+	
 }
 bool GameSquare::hasValue() const
 {

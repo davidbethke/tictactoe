@@ -1,15 +1,11 @@
 #ifndef MARK_H
 #define MARK_H
 
-struct Mark
-{
-	enum Values{
+	enum Mark{
 		BLANK,
 		OH,
 		EX,
 		W
 	};
-
-};
-char * markValues[]={"*","O","X","W"};
+	char * markValues[]={"*","O","X","W"};
 #endif

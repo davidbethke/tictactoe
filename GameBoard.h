@@ -14,7 +14,7 @@ public:
 	
 	GameBoard(GameParameters& gP);
 	~GameBoard(void);
-	bool markBoard(int,int,Mark::Values);
+	bool markBoard(int,int,Mark);
 	bool checkFull(void) const;
 	bool checkAllGeneric(void);
 	void clearBoard(void);

@@ -7,7 +7,7 @@ struct GameResults
 {
 	GameResults(void);
 	~GameResults(void);
-	Mark::Values winMark;
+	Mark winMark;
 	Position	 winPos;
 	Direction winDir;
 	int	winPlayer;

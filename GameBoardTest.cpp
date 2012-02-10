@@ -5,7 +5,7 @@ GameBoardTest::GameBoardTest():gP(),gb(gP)
 {
 }
 
-bool GameBoardTest::fillBoard(const int numRows, const int numCols,const Mark::Values & mark )
+bool GameBoardTest::fillBoard(const int numRows, const int numCols,const Mark & mark )
 {
 	bool result=false;
 	for (int i=0; i<numRows;++i)
@@ -17,7 +17,7 @@ bool GameBoardTest::fillBoard(const int numRows, const int numCols,const Mark::V
 	}
 	return result;
 }
-bool GameBoardTest::markWinner(const Direction& dir,const int& number, int row, int col,const Mark::Values& mark)
+bool GameBoardTest::markWinner(const Direction& dir,const int& number, int row, int col,const Mark& mark)
 {
 	bool result=false;
 	int rowAdd=0, colAdd=0;

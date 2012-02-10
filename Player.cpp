@@ -30,7 +30,7 @@ string Player::getName()
 {
 	return name;
 }
-Mark::Values Player::getMark()
+Mark Player::getMark()
 {
 	return myMark;
 }
@@ -40,7 +40,7 @@ void Player::setName(string n)
 	if (name != "Computer")
 		myMove=humanMove;
 }
-void Player::setMark(Mark::Values m)
+void Player::setMark(Mark m)
 {
 	myMark=m;
 }

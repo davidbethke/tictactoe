@@ -1,11 +1,21 @@
-﻿Build started 2/9/2012 3:20:12 PM.
+﻿Build started 2/9/2012 8:14:32 PM.
      1>Project "D:\Users\dave\documents\visual studio 2010\Projects\Game\Game\Game.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Touching "Release\Game.unsuccessfulbuild".
+         Creating "Release\Game.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          All outputs are up-to-date.
-         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\Game.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GameType.cpp
-         GameType.cpp
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\Game.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp GameBoard.cpp GameSquare.cpp
+         Game.cpp
+         GameBoard.cpp
+     1>GameBoard.cpp(46): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
+     1>GameBoard.cpp(52): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
+     1>GameBoard.cpp(119): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
+     1>GameBoard.cpp(153): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
+         GameSquare.cpp
+     1>GameSquare.cpp(5): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
+     1>GameSquare.cpp(15): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
+     1>GameSquare.cpp(28): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
+     1>GameSquare.cpp(28): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
        ResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -36,4 +46,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:20.65
+Time Elapsed 00:00:21.13

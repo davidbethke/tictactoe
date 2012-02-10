@@ -16,6 +16,7 @@ void displayGameResults(GameParameters& gameParams)
 	if(gameParams.results->win)
 	{
 		cout << "Winning Mark is:"<<markValues[gameParams.results->winMark]<<endl; // take enum, translate to string
+		cout << "Wining Position, start:("<<gameParams.results->winPos.row<<","<<gameParams.results->winPos.col<<")"<<endl;
 		cout << "Winning Direction is:"<<DirString[gameParams.results->winDir]<<endl;
 	}
 	cout << "In a row to win:"<< gameParams.INAROWTOWIN<<endl;

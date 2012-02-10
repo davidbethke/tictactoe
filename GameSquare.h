@@ -11,12 +11,12 @@ public:
 	~GameSquare(void);
 	bool isBlank() const;
 	bool hasValue() const;
-	void setValue(Mark::Values);
-	Mark::Values getValue() const;
+	void setValue(Mark);
+	Mark getValue() const;
 	std::string getSValue() const;
 
 private:
-	Mark::Values mark;
+	Mark mark;
 };
 #endif
 

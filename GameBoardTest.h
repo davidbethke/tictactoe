@@ -17,8 +17,8 @@ protected:
 	virtual void TearDown()
 	{
 	}
-	bool fillBoard(const int numRows, const int numCols,const Mark::Values & mark);
-	bool markWinner(const Direction&,const int&, int, int,const Mark::Values&);
+	bool fillBoard(const int numRows, const int numCols,const Mark & mark);
+	bool markWinner(const Direction&,const int&, int, int,const Mark&);
 	GameParameters gP;
 	GameBoard gb;
 	

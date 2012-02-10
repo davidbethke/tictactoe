@@ -13,13 +13,13 @@ public:
 	bool move(int, int, GameBoard*);
 	bool move(GameBoard*); // Im a friend of GameBoard
 	void setName(std::string);
-	void setMark(Mark::Values);
-	Mark::Values getMark();
+	void setMark(Mark);
+	Mark getMark();
 	std::string getName();
 	
 private:
 	std::string name;
-	Mark::Values myMark;
+	Mark myMark;
 	void (*myMove)(int &, int &, const int &, const int &);
 };
 

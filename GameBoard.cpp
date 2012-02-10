@@ -47,7 +47,7 @@ void GameBoard::clearBoard()
 		}
 	}
 }
-bool GameBoard::markBoard(int r, int c, Mark::Values mark)
+bool GameBoard::markBoard(int r, int c, Mark mark)
 {
 	if((gameBoard[r][c].hasValue())|| (mark==Mark::BLANK)) // can't mark if has value, can't mark w/ a BLANK
 		return false;
@@ -58,7 +58,7 @@ bool GameBoard::markBoard(int r, int c, Mark::Values mark)
 		return true; // set should be void
 	}
 }
-bool GameBoard::checkAllGeneric() 
+bool GameBoard::checkAllGeneric()						// check across, down, diag1, diag2 directions return true if winner
 {
 	
 	for(int i=0;i<gameParams.NUMROWS;++i)
@@ -95,7 +95,15 @@ void GameBoard::displayBoard(string n) const
 	}
 
 }
-bool GameBoard::searchGeneric(Position start,void(*inc)(Position&))
+
+//////////////////////////////////////////////////////
+// Generic search,works for square, rect shaped gameboard
+// Takes starting position, and iterates (across,down,diag1,diag2) until its out of bounds
+// Accumulates matches in matchCount, reset on first no match
+// matchCount == INAROWTOWIN return true winner
+// If a winner, replace values w/ a W to mark the win, easier to see on large boards
+////////////////////////////////////////////////////////
+bool GameBoard::searchGeneric(Position start,void(*inc)(Position&)) 
 {
 	
 	bool win=false;
