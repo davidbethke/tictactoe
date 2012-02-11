@@ -1,11 +1,11 @@
 #ifndef MARK_H
 #define MARK_H
 
-	enum Mark{
+	static enum Mark{
 		BLANK,
 		OH,
 		EX,
 		W
 	};
-	char * markValues[]={"*","O","X","W"};
+	static char * markValues[]={"*","O","X","W"};
 #endif
