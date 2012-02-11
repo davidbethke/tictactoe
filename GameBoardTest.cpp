@@ -218,12 +218,14 @@ TEST_F(GameBoardTest,markWinnerDiag2W)
 	EXPECT_TRUE(result)<<"Didn't Mark the Board, correctly";
 	EXPECT_FALSE(gb.checkAllGeneric())<< "Can't win w/ a W";
 }
-TEST_F(GameBoardTest,markOutOfBounds)
+TEST_F(GameBoardTest,DISABLED_markOutOfBounds)
 {
+	//this is a COMMENT input w/ VIM like capability
 	EXPECT_FALSE(gb.markBoard(3,0,Mark::EX))<<"Mark at 3,0 should fail";
 	EXPECT_FALSE(gb.markBoard(0,3,Mark::EX))<<"Mark at 0,3 should fail";
 	EXPECT_FALSE(gb.markBoard(-1,0,Mark::EX))<<"Mark at -1,0 should fail";
 
+	
 }
 
 
