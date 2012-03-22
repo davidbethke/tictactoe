@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="31" failures="2" disabled="0" errors="0" time="0.004" name="AllTests">
+  <testsuite name="SampleTest" tests="1" failures="0" disabled="0" errors="0" time="0">
+    <testcase name="test1" status="run" time="0" classname="SampleTest" />
+  </testsuite>
+  <testsuite name="GameBoardTest" tests="20" failures="2" disabled="0" errors="0" time="0.003">
+    <testcase name="notFull" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markBoard" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="checkFullBlank" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="checkFullEx" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="checkFullOh" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="checkFullW" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerAcrossOManual" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerAcrossO" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerAcrossX" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerAcrossW" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerDownO" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerDownX" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerDownW" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerDiag1O" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerDiag1X" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerDiag1W" status="run" time="0" classname="GameBoardTest">
+      <failure message="SEH exception with code 0xc0000005 thrown in the test body." type=""><![CDATA[unknown file
+SEH exception with code 0xc0000005 thrown in the test body.]]></failure>
+    </testcase>
+    <testcase name="markWinnerDiag2O" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerDiag2X" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markWinnerDiag2W" status="run" time="0" classname="GameBoardTest" />
+    <testcase name="markOutOfBounds" status="run" time="0" classname="GameBoardTest">
+      <failure message="SEH exception with code 0xc0000005 thrown in the test body." type=""><![CDATA[unknown file
+SEH exception with code 0xc0000005 thrown in the test body.]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="GameParametersTest" tests="1" failures="0" disabled="0" errors="0" time="0">
+    <testcase name="testInitVals" status="run" time="0" classname="GameParametersTest" />
+  </testsuite>
+  <testsuite name="GameSquareTest" tests="4" failures="0" disabled="0" errors="0" time="0">
+    <testcase name="initializedBlank" status="run" time="0" classname="GameSquareTest" />
+    <testcase name="hasValue" status="run" time="0" classname="GameSquareTest" />
+    <testcase name="getValue" status="run" time="0" classname="GameSquareTest" />
+    <testcase name="getSvalue" status="run" time="0" classname="GameSquareTest" />
+  </testsuite>
+  <testsuite name="GameTypeTest" tests="5" failures="0" disabled="0" errors="0" time="0">
+    <testcase name="swapPlayerIndex" status="run" time="0" classname="GameTypeTest" />
+    <testcase name="setPlayerNamesGP" status="run" time="0" classname="GameTypeTest" />
+    <testcase name="resultsInitialized" status="run" time="0" classname="GameTypeTest" />
+    <testcase name="resultsReset" status="run" time="0" classname="GameTypeTest" />
+    <testcase name="playerNameMark" status="run" time="0" classname="GameTypeTest" />
+  </testsuite>
+</testsuites>

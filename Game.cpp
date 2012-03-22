@@ -1,4 +1,7 @@
 // Game.cpp : Defines the entry point for the console application.
+// Updated for Lab5 using the template GridT class
+// #define NEWGAMEBOARD for new version
+// #define OLDGAMEBOARD for old version
 //	Advanced C++ Class
 //  Assignment 2:
 //	David Bethke
@@ -19,7 +22,7 @@
 #include<iostream>
 #include"GameType.h"
 #include "GameParameters.h"
-/*
+
 #ifdef _DEBUG
 #include "gtest/gtest.h"
 
@@ -29,19 +32,22 @@ TEST(SampleTest,test1)
 	EXPECT_EQ(1,1);
 }
 #endif //_DEBUG
-*/
+
 using namespace std;
 int _tmain(int argc, _TCHAR* argv[])
 {
-	/*enable only for  DEBUG
+//enable only for  DEBUG
+	//Jenkins test
 	#ifdef _DEBUG
-	testing::InitGoogleTest(&argc, argv); 
-    RUN_ALL_TESTS(); 
-	std::getchar();
+		::testing::GTEST_FLAG(print_time) = true;
+		::testing::GTEST_FLAG(output) = "xml:C:\\Program Files\\Jenkins\\jobs\\GameTicTacToeUnitTests\\workspace\\test_detail.xml";
+		testing::InitGoogleTest(&argc, argv); 
+		RUN_ALL_TESTS(); 
+		std::getchar();
 	#endif
-	*/
+	
 	//choose game
-//#ifdef NDEBUG
+#ifdef NDEBUG
 	char gameAnswer='n';
 	int gameRows=3, gameCols=3, gameInARow=3; //default to tic tac toe
 	
@@ -62,15 +68,15 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	GameParameters myGameParams(gameRows,gameCols,gameInARow);
 	GameType myGame(myGameParams);
-	//#endif //NDEBUG
-//#ifdef NDEBUG_DAVE
+	#endif //NDEBUG
+#ifdef NDEBUG
 	char answer = 'y';
 	do {
 		myGame.play();
 		cout << "Do you want to play again (y/n)? ";
 		cin >> answer;
 	} while(toupper(answer) == 'Y');
-//#endif //NDEBUG
+#endif //NDEBUG
 	return 0;
 }
 

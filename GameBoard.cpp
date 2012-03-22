@@ -7,11 +7,14 @@ using namespace std;
 GameBoard::GameBoard(GameParameters& gP):gameParams(gP)
 {
 	typedef  void(*myInc)(Position &);					//define myInc as a pointer to inc Funcs
-	
+	#ifdef NEWGAMEBOARD
+	gameBoard=GridT<GameSquare>();
+	#endif// NEWGAMEBOARD
+	#ifdef OLDGAMEBOARD
 	gameBoard= new GameSquare *[gameParams.NUMROWS];	//init gameboard
 	for (int i=0; i<gameParams.NUMROWS;++i)
 		gameBoard[i]= new GameSquare[gameParams.NUMCOLS];
-	
+	#endif //OLDGAMEBOARD
 	searchFunctionArr= new myInc[NUMBEROFFUNCS];		//init function array
 	searchFunctionArr[0]=acrossInc;
 	searchFunctionArr[1]=downInc;
@@ -19,12 +22,15 @@ GameBoard::GameBoard(GameParameters& gP):gameParams(gP)
 	searchFunctionArr[3]=diagDec;
 	
 }
+//TODO Sample TODO marker created in GameBoard.cpp
 GameBoard::~GameBoard(void)
 {
+	#ifdef OLDGAMEBOARD
 	//Clean up pointers
 	for(int i=0; i< gameParams.NUMROWS;++i)
 			delete[] gameBoard[i];
 	delete [] gameBoard;
+	#endif//OLDGAMEBOARD
 	/* IDE tells me a pointer to a function cannot be deleted
 	for (int i=0;i<NUMBEROFFUNCS;++i)
 		delete searchFunctionArr[i];

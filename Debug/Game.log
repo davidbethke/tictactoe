@@ -1,139 +1,63 @@
-﻿Build started 2/9/2012 8:02:22 PM.
-     1>Project "D:\Users\dave\documents\visual studio 2010\Projects\Game\Game\Game.vcxproj" on node 2 (build target(s)).
+﻿Build started 3/21/2012 11:42:18 PM.
+     1>Project "D:\Users\dave\Documents\Visual Studio 2010\Projects\Game\Game\Game.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\Game.unsuccessfulbuild".
        ClCompile:
-         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"D:\Users\dave\Documents\Visual Studio 2010\Projects\GTest\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\Game.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         All outputs are up-to-date.
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"D:\Users\dave\Documents\Visual Studio 2010\Projects\GTest\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D NEWGAMEBOARD /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\Game.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp /wd4482 
          stdafx.cpp
-         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"D:\Users\dave\Documents\Visual Studio 2010\Projects\GTest\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\Game.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp GameBoard.cpp GameBoardTest.cpp GameParameters.cpp GameParametersHelper.cpp GameParametersTest.cpp GameResults.cpp GameSquare.cpp GameSquareTest.cpp GameType.cpp GameTypeHelper.cpp GameTypeTest.cpp Player.cpp PlayerHelper.cpp Position.cpp
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"D:\Users\dave\Documents\Visual Studio 2010\Projects\GTest\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D NEWGAMEBOARD /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\Game.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp GameBoard.cpp GameBoardTest.cpp GameParameters.cpp GameParametersHelper.cpp GameParametersTest.cpp GameResults.cpp GameSquare.cpp GameSquareTest.cpp GameType.cpp GameTypeHelper.cpp GameTypeTest.cpp Player.cpp PlayerHelper.cpp Position.cpp /wd4482 
          Position.cpp
          PlayerHelper.cpp
          Player.cpp
          GameTypeTest.cpp
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypetest.cpp(8): error C2653: 'GameTypeTest' : is not a class or namespace name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypetest.cpp(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypetest.cpp(8): error C3861: 'GameParameters': identifier not found
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypetest.cpp(8): error C2065: 'gP' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypetest.cpp(8): error C3861: 'GameType': identifier not found
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypetest.cpp(9): error C2550: 'GameTypeTest' : constructor initializer lists are only allowed on constructor definitions
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypetest.cpp(11): warning C4508: 'GameTypeTest' : function should return a value; 'void' return type assumed
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypetest.cpp(12): error C2653: 'GameTypeTest' : is not a class or namespace name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypetest.cpp(12): fatal error C1903: unable to recover from previous error(s); stopping compilation
          GameTypeHelper.cpp
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypehelper.cpp(34): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametypehelper.cpp(35): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
          GameType.cpp
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gametype.cpp(44): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
          GameSquareTest.cpp
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(4): error C2065: 'GameSquareTest' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(4): error C2065: 'initializedBlank' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(5): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(9): error C2065: 'GameSquareTest' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(9): error C2065: 'hasValue' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(10): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(16): error C2065: 'GameSquareTest' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(16): error C2065: 'getValue' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(17): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(24): error C2065: 'GameSquareTest' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(24): error C2065: 'getSvalue' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquaretest.cpp(25): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
          GameSquare.cpp
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquare.cpp(5): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquare.cpp(15): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquare.cpp(28): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gamesquare.cpp(28): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
          GameResults.cpp
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameresults.cpp(4): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameresults.cpp(4): warning C4482: nonstandard extension used: enum 'Direction' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameresults.cpp(13): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameresults.cpp(15): warning C4482: nonstandard extension used: enum 'Direction' used in qualified name
          GameParametersTest.cpp
          GameParametersHelper.cpp
          GameParameters.cpp
          GameBoardTest.cpp
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(4): error C2653: 'GameBoardTest' : is not a class or namespace name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(4): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(4): error C2065: 'gP' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(5): error C2550: 'GameBoardTest' : constructor initializer lists are only allowed on constructor definitions
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(6): warning C4508: 'GameBoardTest' : function should return a value; 'void' return type assumed
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(8): error C2653: 'GameBoardTest' : is not a class or namespace name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(8): error C2143: syntax error : missing ',' before '&'
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(15): error C2065: 'gb' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(15): error C2228: left of '.markBoard' must have class/struct/union
-                 type is ''unknown-type''
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(15): error C2065: 'mark' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(20): error C2653: 'GameBoardTest' : is not a class or namespace name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(20): error C2143: syntax error : missing ',' before '&'
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(24): error C2065: 'dir' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(24): error C2050: switch expression not integral
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(26): error C2065: 'ACROSS' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(26): error C2051: case expression not constant
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(30): error C2065: 'DOWN' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(30): error C2051: case expression not constant
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(34): error C2065: 'DIAG1' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(34): error C2051: case expression not constant
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(38): error C2065: 'DIAG2' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(38): error C2051: case expression not constant
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(44): warning C4065: switch statement contains 'default' but no 'case' labels
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(46): error C2065: 'number' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(49): error C2065: 'gb' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(49): error C2228: left of '.markBoard' must have class/struct/union
-                 type is ''unknown-type''
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(49): error C2065: 'row' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(49): error C2065: 'col' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(49): error C2065: 'mark' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(50): error C2065: 'row' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(51): error C2065: 'col' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(72): error C2065: 'notFull' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(73): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(77): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(84): error C2065: 'checkFullBlank' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(85): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(91): error C2065: 'checkFullEx' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(92): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(99): error C2065: 'checkFullOh' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(100): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(106): error C2065: 'checkFullW' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(107): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(113): error C2065: 'markWinnerAcrossOManual' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(114): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(122): error C2065: 'markWinnerAcrossO' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(123): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(131): error C2065: 'markWinnerAcrossX' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(132): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(139): error C2065: 'markWinnerAcrossW' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(140): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(147): error C2065: 'markWinnerDownO' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(148): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(156): error C2065: 'markWinnerDownX' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(157): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(164): error C2065: 'markWinnerDownW' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(165): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(172): error C2065: 'markWinnerDiag1O' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(173): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(181): error C2065: 'markWinnerDiag1X' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(182): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(189): error C2065: 'markWinnerDiag1W' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(190): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(197): error C2065: 'markWinnerDiag2O' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(198): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(206): error C2065: 'markWinnerDiag2X' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(207): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(214): error C2065: 'markWinnerDiag2W' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(215): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(221): error C2065: 'markOutOfBounds' : undeclared identifier
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboardtest.cpp(222): error C2448: 'TEST_F' : function-style initializer appears to be a function definition
          GameBoard.cpp
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboard.cpp(46): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboard.cpp(52): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboard.cpp(111): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
-     1>d:\users\dave\documents\visual studio 2010\projects\game\game\gameboard.cpp(145): warning C4482: nonstandard extension used: enum 'Mark' used in qualified name
          Game.cpp
          Generating Code...
-     1>Done Building Project "D:\Users\dave\documents\visual studio 2010\Projects\Game\Game\Game.vcxproj" (build target(s)) -- FAILED.
+       ResourceCompile:
+         All outputs are up-to-date.
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\dave\Documents\Visual Studio 2010\Projects\Game\Debug\Game.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\Users\dave\Documents\Visual Studio 2010\Projects\GTest\msvc\gtest\Debug" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib gtestd.lib /MANIFEST /ManifestFile:"Debug\Game.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Users\dave\Documents\Visual Studio 2010\Projects\Game\Debug\Game.pdb" /SUBSYSTEM:CONSOLE /OPT:NOREF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\dave\Documents\Visual Studio 2010\Projects\Game\Debug\Game.lib" /MACHINE:X86 /PROFILE Debug\Game.res
+         Debug\Game.exe.embed.manifest.res
+         Debug\Game.obj
+         Debug\GameBoard.obj
+         Debug\GameBoardTest.obj
+         Debug\GameParameters.obj
+         Debug\GameParametersHelper.obj
+         Debug\GameParametersTest.obj
+         Debug\GameResults.obj
+         Debug\GameSquare.obj
+         Debug\GameSquareTest.obj
+         Debug\GameType.obj
+         Debug\GameTypeHelper.obj
+         Debug\GameTypeTest.obj
+         Debug\Player.obj
+         Debug\PlayerHelper.obj
+         Debug\Position.obj
+         Debug\stdafx.obj
+     1>LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/PROFILE' specification
+       Manifest:
+         D:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Game.exe.embed.manifest" /manifest Debug\Game.exe.intermediate.manifest
+         All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         Game.vcxproj -> D:\Users\dave\Documents\Visual Studio 2010\Projects\Game\Debug\Game.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Game.unsuccessfulbuild".
+         Touching "Debug\Game.lastbuildstate".
+     1>Done Building Project "D:\Users\dave\Documents\Visual Studio 2010\Projects\Game\Game\Game.vcxproj" (build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:07.04
+Time Elapsed 00:00:17.84

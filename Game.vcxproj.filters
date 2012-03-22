@@ -82,6 +82,21 @@
     <ClInclude Include="GameParametersHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GitTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GridTHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayTHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
